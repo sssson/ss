@@ -12,3 +12,6 @@ def siteMain(reqeust):
 
 def detail(request):
     return render(request, 'blog/detail.html')
+
+def credit(request):
+    return render(request, 'blog/credit.html')
