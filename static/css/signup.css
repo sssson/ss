@@ -125,6 +125,17 @@
   box-shadow: 1px 0px 2px 1px rgb(124, 123, 123);
 }
 
+.btn3{
+  width: 130px;
+  height: 35px;
+  margin-top: 1.5cm;
+  margin-left:5cm;
+  border-radius: 10px;
+  border-style: solid;
+  border-color:aliceblue;
+  box-shadow: 1px 0px 2px 1px rgb(124, 123, 123);
+}
+
 .enter{
   display:flex;
   flex-direction: row;
