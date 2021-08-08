@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def helloworld(request):
+def main(request):
     return render(request, 'blog/main.html')
 
 def siteMain(reqeust):

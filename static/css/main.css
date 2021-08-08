@@ -5,12 +5,12 @@
 } 
 
 html{
-    background: url(https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1494&q=80) no-repeat center center fixed;
+    background-color: rgb(240, 237, 233);
     background-size: cover;
 }
 
 .nav-wrapper{
-    background-color: rgb(196, 194, 194);
+    background-color: rgb(106, 159, 177);
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -28,6 +28,8 @@ html{
 
 .logo img{
     justify-content: center;
+    width:240px;
+    height:100px;
 }
 
 .nav li{
