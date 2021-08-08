@@ -30,4 +30,5 @@ def main_map(request):
 def login(request):
     return render(request, 'blog/login.html')
 
-
+def post(request):
+    return render(request, 'blog/post.html')
