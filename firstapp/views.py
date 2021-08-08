@@ -21,3 +21,8 @@ def credit(request):
 
 def main_map(request):
     return render(request, 'blog/map.html')
+
+def login(request):
+    return render(request, 'blog/login.html')
+
+
