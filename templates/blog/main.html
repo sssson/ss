@@ -25,7 +25,9 @@
     <!--여기까지가 Navbar-->
     <div class="search-wrapper">
         <div class="search">
-            <input type="text" value=" # Search ">
+            <form action="{% url 'search' %}" method='GET'>  
+            <input type="text" name="search_key" value="{{ search_key }}">
+            </form>
             <img src="https://image.flaticon.com/icons/png/512/622/622669.png" >
         </div>
         

@@ -98,11 +98,11 @@
             var marker = new kakao.maps.Marker({
                 map: map,
                 position: coordinates[idx],
-                title: list_tag[idx]
+                title: list_bdy[idx]
             });
 
             var infoWindow = new kakao.maps.InfoWindow({
-                content: list_tag[idx]
+                content: list_bdy[idx]
             });
             (function(marker, infoWindow) {
                 kakao.maps.event.addListener(marker, 'mouseover', function() {
