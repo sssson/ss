@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from firstapp.views import main, detail, credit
+from firstapp.views import main, detail, credit, main_map
 import firstapp.views
 
 urlpatterns = [
@@ -23,4 +23,5 @@ urlpatterns = [
     path('', main, name='main'),
     path('detail/', detail, name='detail'),
     path('credit/', credit, name='credit'),
+    path('map/', main_map, name='main_map'),
 ]
