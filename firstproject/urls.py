@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from firstapp.views import main, detail, credit, main_map, signup, login
+from firstapp.views import main, detail, credit, main_map, signup, login, search
 import firstapp.views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -28,4 +28,5 @@ urlpatterns = [
     path('credit/', credit, name='credit'),
     path('map/', main_map, name='main_map'),
     path('', login, name='login'),
+    path('search/', search, name='search'),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
