@@ -12,32 +12,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="header">
-    <h1 class="title">Cli-mate</h1>
-    <button type="button" class="btn">login</button>
-    <img src="https://icongr.am/jam/bus.svg?size=35&color=currentColor"> <!--상단바 프로필사진-->
-  </div>
-  <div class ="main">
-    <div class="ID">
-      <button type="button" class="id">ID</button>
-      <input type="text" class="input-id">
+  <form method="POST" action="{% url 'signup' %}">
+
+    {% csrf_token %}
+    <div class="header">
+      <h1 class="title">Cli-mate</h1>
+      <button type="button" class="btn">login</button>
+      <img src="https://icongr.am/jam/bus.svg?size=35&color=currentColor"> <!--상단바 프로필사진-->
     </div>
-    <div class="Password">
-      <button type="button" class="password">비밀번호</button>
-      <input type="password" class="input-password">
+    <div class ="main">
+      <div class="ID">
+        <button type="button" class="id">ID</button>
+        <input name="username" type="text" value="">
+      </div>
+      <div class="Password">
+        <button type="button" class="password">비밀번호</button>
+        <input name="password" type="password" value="">
+      </div>
+      <div class="Password2">
+        <button type="button" class="password2">비밀번호 확인</button>
+        <input name="password2" type="password" value="">
+      </div>
+      <div class="Select-image">
+        <button type="button" class="image">이미지 선택</button>
+        <input type="file" class="select-image">
+      </div>
+      <div class="enter">
+      <button type="button" class="btn2">취소</button>
+      <input class="button" type="submit" value="회원가입">
+      </div>
     </div>
-    <div class="Password2">
-      <button type="button" class="password2">비밀번호 확인</button>
-      <input type="password" class="input-password2">
-    </div>
-    <div class="Select-image">
-      <button type="button" class="image">이미지 선택</button>
-      <input type="file" class="select-image">
-    </div>
-    <div class="enter">
-     <button type="button" class="btn2">취소</button>
-     <button type="button" class="btn2">회원가입</button>
-    </div>
-  </div>
+  </form>
 </body>
 </html>

@@ -11,26 +11,41 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet">
 </head>
+
+{% if error %}
+{{ error }}
+<br>
+<br>
+{% endif %}
+
 <body>
-  <div class="header">
-    <h1 class="title">Cli-mate</h1>
-    <button type="button" class="btn">login</button>
-    <img src="https://icongr.am/jam/bus.svg?size=35&color=currentColor"> <!--상단바 프로필사진-->
-  </div>
-  <div class ="main">
-    <div class="ID">
-      <button type="button" class="id">ID</button>
-      <input type="text" class="input-id">
+  <form method="POST" action="{% url 'login' %}">
+    
+    {% csrf_token %}
+    <div class="header">
+      <h1 class="title">Cli-mate</h1>
+      <button type="button" class="btn">login</button>
+      <img src="https://icongr.am/jam/bus.svg?size=35&color=currentColor"> <!--상단바 프로필사진-->
     </div>
-    <div class="Password">
-      <button type="button" class="password">비밀번호</button>
-      <input type="password" class="input-password">
+    <div class ="main">
+      <div class="ID">
+        <button type="button" class="id">ID</button>
+        <input name="username" type="text" value="">
+      </div>
+      <div class="Password">
+        <button type="button" class="password">비밀번호</button>
+        <input name="password" type="password" value="">
+      </div>
+      <div class="Select-image">
+        <button type="button" class="image">이미지 선택</button>
+        <input type="file" class="select-image">
+      </div>
+      <div class="enter">
+      <input class="button" type="button" onclick="location.href='signup'" value="회원가입">
+      <input class="button" type="submit" value="로그인">
+      <input class="button" type="button" value="취소">
+      </div>
     </div>
-    <div class="enter">
-      <button type="button" class="btn2" style="cursor: pointer;">로그인</button>
-      <a href="{% url 'signup' %}"><button  class="btn2" type="button" class="btn2" style="cursor: pointer;">회원가입</button></a>
-      <a href="{% url 'main' %}">맵 페이지 임시 버튼</a>
-    </div>
-  </div>
+    </form>
 </body>
 </html>
