@@ -33,3 +33,10 @@
 .title{
   margin-right:17.8cm;
 }
+
+.main{
+  width: 1500px;
+  height: 1500px;
+  justify-content: center;
+  align-items: center;
+}
