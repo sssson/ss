@@ -1,6 +1,7 @@
 from django.http import request
 from django.http.response import HttpResponse
 from django.shortcuts import render
+from .models import Blog
 
 # Create your views here.
 
@@ -20,7 +21,11 @@ def credit(request):
     return render(request, 'blog/credit.html')
 
 def main_map(request):
-    return render(request, 'blog/map.html')
+    blogs = Blog.objects.all()
+    context = {
+        'blogs': blogs,
+    }
+    return render(request, 'blog/map.html', context)
 
 def login(request):
     return render(request, 'blog/login.html')
