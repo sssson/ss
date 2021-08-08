@@ -7,6 +7,9 @@ from django.shortcuts import render
 def main(request):
     return render(request, 'blog/main.html')
 
+def signup(request):
+    return render(request, 'blog/signup.html')
+
 def siteMain(reqeust):
     return render(request, 'siteMain.html')
 
