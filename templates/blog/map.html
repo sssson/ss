@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/map.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>   
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap" rel="stylesheet">
+    <title>Map</title>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <div class="logo">
+            <img src="../../static/css/Logo.PNG">
+        </div>
+        <ul class="nav">
+            <li style="color: white;" class="logout"><a href="#">Logout</a></li>
+            <li><img class="nav-profile" src="https://image.flaticon.com/icons/png/512/149/149071.png"></li>
+        </ul>
+    </div>
+    <h2 style="text-align: center;">사용자들의 위치를 확인하세요!</h2>
+    <div id="map" style="width:70%;height:450px;margin-left:15%;"></div>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b50f777e80931e3ecceb48757ca6e4bf&libraries=services,clusterer,drawing"></script>
+    <script>
+        var container = document.getElementById('map'); //지도를 담을 영역의 reference
+        var options = {
+            center: new kakao.maps.LatLng(35.889733, 128.610047), //지도의 option을 설정 // 35.-,128.- 는 좌표 정보
+            level: 4
+        };
+
+        var map = new kakao.maps.Map(container, options);
+
+        var markerPosition = new kakao.maps.LatLng(35.889733, 128.610047); //marker를 표시할 지점 지정
+
+        var marker = new kakao.maps.Marker({    //marker 생성
+            position: markerPosition
+        });
+
+        marker.setMap(map); //marker가 지도 위에 표시되도록 설정
+    </script>
+</body>
+</html>
