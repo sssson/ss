@@ -13,4 +13,4 @@ class Blog(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE) #작성자
     created_at = models.DateTimeField(auto_now_add=True) #작성시각
     #pub_date = models.DateTimeField('data published')
-    body = models.TextField(max_length=200) #글 본문
+    body = models.TextField(max_length=200) #글 본문 
