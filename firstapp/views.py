@@ -9,3 +9,6 @@ def helloworld(request):
 
 def siteMain(reqeust):
     return render(request, 'siteMain.html')
+
+def detail(request):
+    return render(request, 'blog/detail.html')
