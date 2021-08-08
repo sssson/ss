@@ -7,5 +7,8 @@ from django.shortcuts import render
 def helloworld(request):
     return render(request, 'blog/detail.html')
 
-def siteMain(reqeust):
+def siteMain(request):
     return render(request, 'siteMain.html')
+
+def signup(request):
+    return render(request, 'blog/signup.html')
