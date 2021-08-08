@@ -18,3 +18,6 @@ def detail(request):
 
 def credit(request):
     return render(request, 'blog/credit.html')
+
+def main_map(request):
+    return render(request, 'blog/map.html')
