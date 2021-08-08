@@ -27,7 +27,7 @@ urlpatterns = [
     path('detail/', detail, name='detail'),
     path('credit/', credit, name='credit'),
     path('map/', main_map, name='main_map'),
-    path('', login, name='login'),
+    path('', login, name='main_login'),
     path('accounts/', include('accounts.urls')),
 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
