@@ -21,7 +21,11 @@ def credit(request):
     return render(request, 'blog/credit.html')
 
 def main_map(request):
-    return render(request, 'blog/map.html')
+    blogs = Blog.objects.all()
+    context = {
+        'blogs': blogs,
+    }
+    return render(request, 'blog/map.html', context)
 
 def login(request):
     return render(request, 'blog/login.html')
@@ -34,3 +38,5 @@ def search(request):
         blog_list = blog_list.filter(hashtag__icontains=search_key) # 해당 검색어를 포함한 queryset 가져오기
 
     return render(request, 'blog/search.html', {'blog_list':blog_list})
+def post(request):
+    return render(request, 'blog/post.html')

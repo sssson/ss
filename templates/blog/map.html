@@ -21,7 +21,51 @@
             <li><img class="nav-profile" src="https://image.flaticon.com/icons/png/512/149/149071.png"></li>
         </ul>
     </div>
-    <h2 style="text-align: center;">사용자들의 위치를 확인하세요!</h2>
+
+    <!--아래부터는 받아온 값들을 각각 id를 부여하여 저장한 것-->
+    <div id="lat" style="display:none"> <!--위도값 불러와서 저장-->
+        {%for blog in blogs%}
+            {{blog.latitude}},
+        {%endfor%}
+    </div>
+    <div id="lng" style="display:none"> <!--경도값 불러와서 저장-->
+        {%for blog in blogs%}
+            {{blog.longitude}},
+        {%endfor%}
+    </div>
+    <div id="tag" style="display:none"> <!--hashtag값 불러와서 저장-->
+        {%for blog in blogs%}
+            {{blog.hashtag}},
+        {%endfor%}
+    </div>
+    <div id="wth" style="display:none"> <!--weather값 불러와서 저장-->
+        {%for blog in blogs%}
+            {{blog.weather}},
+        {%endfor%}
+    </div>
+    <div id="img" style="display:none"> <!--images값 불러와서 저장-->
+        {%for blog in blogs%}
+            {{blog.images}},
+        {%endfor%}
+    </div>
+    <div id="ath" style="display:none"> <!--author값 불러와서 저장-->
+        {%for blog in blogs%}
+            {{blog.author}},
+        {%endfor%}
+    </div>
+    <div id="crt" style="display:none"> <!--created_at값 불러와서 저장-->
+        {%for blog in blogs%}
+            {{blog.created_at}},
+        {%endfor%}
+    </div>
+    <div id="bdy" style="display:none"> <!--body값 불러와서 저장-->
+        {%for blog in blogs%}
+            {{blog.body}},
+        {%endfor%}
+    </div>
+    <!--여기까지 값 저장-->
+
+    <h2 style="text-align: center;">{{ blogs }}</h2>
     <div id="map" style="width:70%;margin-left:15%; min-height:700px;"></div>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b50f777e80931e3ecceb48757ca6e4bf&libraries=services,clusterer,drawing"></script>
     <script>
@@ -33,11 +77,43 @@
 
         var map = new kakao.maps.Map(container, options);
 
-        var markerPosition = new kakao.maps.LatLng(35.889733, 128.610047); //marker를 표시할 지점 지정
+        var list_lat = document.getElementById("lat").innerText.split(','); //getElementById('id')로 해당 id를 가지는 문자열을 가져오고 comma 기준으로 문자열 쪼개서 배열 형태로 저장함
+        var list_lng = document.getElementById("lng").innerText.split(',');
+        var list_tag = document.getElementById("tag").innerText.split(',');
+        var list_wth = document.getElementById("wth").innerText.split(',');
+        var list_img = document.getElementById("img").innerText.split(',');
+        var list_ath = document.getElementById("ath").innerText.split(',');
+        var list_crt = document.getElementById("crt").innerText.split(',');
+        var list_bdy = document.getElementById("bdy").innerText.split(',');
 
-        var marker = new kakao.maps.Marker({    //marker 생성
-            position: markerPosition
-        });
+        var coordinates = new Array(); //좌표 정보 저장할 배열
+
+        for(var idx=0; idx<list_lat.length;idx++) {
+            var latitude = list_lat[idx];
+            var longitude = list_lng[idx];
+            coordinates.push(new kakao.maps.LatLng(latitude,longitude));
+        }
+
+        for(var idx=0; idx<coordinates.length;idx++){
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: coordinates[idx],
+                title: list_bdy[idx]
+            });
+
+            var infoWindow = new kakao.maps.InfoWindow({
+                content: list_bdy[idx]
+            });
+            (function(marker, infoWindow) {
+                kakao.maps.event.addListener(marker, 'mouseover', function() {
+                    infoWindow.open(map, marker);
+                });
+
+                kakao.maps.event.addListener(marker, 'mouseout', function() {
+                    infoWindow.close();
+                });
+            })(marker, infoWindow);
+        }
 
         marker.setMap(map); //marker가 지도 위에 표시되도록 설정
     </script>
