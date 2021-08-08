@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from firstapp.views import main, detail, credit, main_map, signup, login
+from firstapp.views import main, detail, credit, main_map, signup, login, post
 import firstapp.views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -29,5 +29,6 @@ urlpatterns = [
     path('map/', main_map, name='main_map'),
     path('', login, name='main_login'),
     path('accounts/', include('accounts.urls')),
+     path('post/', post, name='post'),
 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
