@@ -1,11 +1,9 @@
 from django.http import request
 from django.http.response import HttpResponse
-<<<<<<< HEAD
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
-=======
-from django.shortcuts import render
->>>>>>> ee2e617dd1893e265564a56d430c9108dab303b2
+
 from .models import Blog
 
 # Create your views here.
@@ -17,7 +15,7 @@ def main(request):
 def signup(request):
     return render(request, 'blog/signup.html')
 
-def siteMain(reqeust):
+def siteMain(request):
     return render(request, 'siteMain.html')
 
 def detail(request, id):
@@ -28,31 +26,32 @@ def credit(request):
     return render(request, 'blog/credit.html')
 
 def main_map(request):
-    blogs = Blog.objects.all()
+    blogss = Blog.objects.all()
     context = {
-        'blogs': blogs,
+        'blogss': blogss,
     }
     return render(request, 'blog/map.html', context)
 
 def login(request):
     return render(request, 'blog/login.html')
 
-<<<<<<< HEAD
 
 def new(request):
     return render(request, 'blog/new.html')
 
+def post(request):
+    return render(request, 'blog/post.html')
+
 def create(request):
-    new_blog = Blog()
-    new_blog.body = request.POST['body']
-    new_blog.created_at = timezone.now()
-    
-    new_blog.images = request.FILES['images']
-    new_blog.save()
-    return redirect('detail', new_blog.id)
+    post_blog = Blog()
+    post_blog.body = request.POST['body']
+    post_blog.hashtag = request.POST['hashtag']
+    post_blog.created_at = timezone.now()
+    post_blog.images = request.FILES['images']
+    post_blog.save()
+    return redirect('detail', post_blog.id)
 
 
-=======
 def search(request):
     blog_list = Blog.objects.all()
     
@@ -61,6 +60,3 @@ def search(request):
         blog_list = blog_list.filter(hashtag__icontains=search_key) # 해당 검색어를 포함한 queryset 가져오기
     return render(request, 'blog/search.html', {'blog_list':blog_list})
     
-def post(request):
-    return render(request, 'blog/post.html')
->>>>>>> ee2e617dd1893e265564a56d430c9108dab303b2
