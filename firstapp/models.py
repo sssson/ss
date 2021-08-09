@@ -10,7 +10,7 @@ class Blog(models.Model):
     hashtag = models.TextField(max_length=20) #해시태그는 하나만 적을 수 있도록 하는 게 편할듯
     weather = models.TextField() #4개로 구분 - cloudy, sunny, rainy, snowy
     images = models.ImageField(upload_to ="images", blank = True, null = True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True) #작성자
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE )#작성자 여기 수정
     created_at = models.DateTimeField(auto_now_add=True) #작성시각
     #pub_date = models.DateTimeField('data published')
     body = models.TextField(max_length=200) #글 본문

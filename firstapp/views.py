@@ -1,9 +1,7 @@
 from django.http import request
 from django.http.response import HttpResponse
-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
-
 from .models import Blog
 
 # Create your views here.
@@ -48,6 +46,7 @@ def create(request):
     post_blog.hashtag = request.POST['hashtag']
     post_blog.created_at = timezone.now()
     post_blog.images = request.FILES['images']
+    post_blog.author = request.user #여기도 수정
     post_blog.save()
     return redirect('main')
 
