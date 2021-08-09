@@ -1,7 +1,9 @@
 from django.http import request
 from django.http.response import HttpResponse
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
+
 from .models import Blog
 
 # Create your views here.
@@ -13,7 +15,7 @@ def main(request):
 def signup(request):
     return render(request, 'blog/signup.html')
 
-def siteMain(reqeust):
+def siteMain(request):
     return render(request, 'siteMain.html')
 
 def detail(request, id):
@@ -24,9 +26,9 @@ def credit(request):
     return render(request, 'blog/credit.html')
 
 def main_map(request):
-    blogs = Blog.objects.all()
+    blogss = Blog.objects.all()
     context = {
-        'blogs': blogs,
+        'blogss': blogss,
     }
     return render(request, 'blog/map.html', context)
 
