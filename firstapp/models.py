@@ -17,3 +17,8 @@ class Blog(models.Model):
 
     def __str__(self):
         return str(self.latitude) + ", " + str(self.longitude) #일단 위도, 경도 표시하도록 해놓음 ->편의에 따라 바꿔도 ㄱㅊ
+
+class Comment(models.Model):
+  post = models.ForeignKey(Blog, on_delete=models.CASCADE, null=True)
+  body = models.TextField()
+  date = models.DateTimeField(default=timezone.now)

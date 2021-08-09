@@ -3,7 +3,7 @@ from django.http import request
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
-from .models import Blog
+from .models import Blog, Comment
 
 # Create your views here.
 
@@ -19,7 +19,14 @@ def siteMain(request):
 
 def detail(request, id):
     blog = get_object_or_404(Blog, pk = id)
-    return render(request, 'blog/detail.html', {'blog' :blog})
+    comments = Comment.objects.filter(post = id)
+    if request.method == "POST":
+        comment = Comment()
+        comment.post = blog
+        comment.body = request.POST['body']
+        comment.date = timezone.now()
+        comment.save()
+    return render(request, 'blog/detail.html', {'blog' :blog, 'comments' : comments})
 
 def credit(request):
     return render(request, 'blog/credit.html')
