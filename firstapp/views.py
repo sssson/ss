@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.http import request
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
@@ -44,6 +45,7 @@ def create(request):
     post_blog = Blog()
     post_blog.body = request.POST['body']
     post_blog.hashtag = request.POST['hashtag']
+    post_blog.author = aa
     post_blog.created_at = timezone.now()
     post_blog.images = request.FILES['images']
     post_blog.author = request.user #여기도 수정
