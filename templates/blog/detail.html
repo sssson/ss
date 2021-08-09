@@ -14,7 +14,9 @@
 <body>
   
   <div class="header">
-    <a href="{% url 'main' %}"><h1 class="title">Cli-mate</h1></a>
+    <div class="logo">
+           <a href="{% url 'main' %}"> <img src="../../static/css/logo_back.PNG" ></a>
+     </div>
     <button type="button" class="btn">logout</button>
     <img src="https://icongr.am/jam/bus.svg?size=35&color=currentColor"> <!--상단바 프로필사진-->
   </div>
@@ -35,7 +37,7 @@
       <a href="{% url 'main_map' %}">맵 페이지 임시 버튼</a>
       <div class="sub-comment">
         <p class="Hash-tag">{{blog.hashtag}}</p> <!--해시태그 시간 좋아요-->
-        <p class="Time">Time</p>
+        <p class="Time">{{blog.created_at}}</p>
         <p class="Like">Like</p>
       </div>
       <div class="main-comment">
@@ -48,11 +50,21 @@
       </div>
       <div class="comment">
        <!--작성된 댓글 넣을 공간-->
-      </div>
-        <div class="comment-input">
-          <input type="text" value="댓글을 작성하세요">
-          <button type="button" class="submit-btn">게시</button> <!--댓글 작성창-->
+       댓글 : 
+        {% for comment in comments %}
+        {{user.username}} : {{comment.body}} - {{comment.date}}
+        <br>
+      {% endfor %}
         </div>
+        
+        <form method="POST">
+          <div class="comment-input">
+            {% csrf_token %}
+            <input name="body" type="text" value="댓글 작성">
+            <input class="submit-btn" type="submit" value="게시">
+          </div>
+        </form>      
+          <!--댓글 작성창-->
     </div>
   </div>
 </body>

@@ -24,48 +24,48 @@
 
     <!--아래부터는 받아온 값들을 각각 id를 부여하여 저장한 것-->
     <div id="lat" style="display:none"> <!--위도값 불러와서 저장-->
-        {%for blog in blogs%}
+        {%for blog in blogss%}
             {{blog.latitude}},
         {%endfor%}
     </div>
     <div id="lng" style="display:none"> <!--경도값 불러와서 저장-->
-        {%for blog in blogs%}
+        {%for blog in blogss%}
             {{blog.longitude}},
         {%endfor%}
     </div>
     <div id="tag" style="display:none"> <!--hashtag값 불러와서 저장-->
-        {%for blog in blogs%}
+        {%for blog in blogss%}
             {{blog.hashtag}},
         {%endfor%}
     </div>
     <div id="wth" style="display:none"> <!--weather값 불러와서 저장-->
-        {%for blog in blogs%}
+        {%for blog in blogss%}
             {{blog.weather}},
         {%endfor%}
     </div>
     <div id="img" style="display:none"> <!--images값 불러와서 저장-->
-        {%for blog in blogs%}
-            {{blog.images}},
+        {%for blog in blogss%}
+            {{blog.images.url}},
         {%endfor%}
     </div>
     <div id="ath" style="display:none"> <!--author값 불러와서 저장-->
-        {%for blog in blogs%}
+        {%for blog in blogss%}
             {{blog.author}},
         {%endfor%}
     </div>
     <div id="crt" style="display:none"> <!--created_at값 불러와서 저장-->
-        {%for blog in blogs%}
+        {%for blog in blogss%}
             {{blog.created_at}},
         {%endfor%}
     </div>
     <div id="bdy" style="display:none"> <!--body값 불러와서 저장-->
-        {%for blog in blogs%}
+        {%for blog in blogss%}
             {{blog.body}},
         {%endfor%}
     </div>
     <!--여기까지 값 저장-->
 
-    <h2 style="text-align: center;">{{ blogs }}</h2>
+    <h2 style="text-align: center;">{{ blogss }}</h2>
     <div id="map" style="width:70%;margin-left:15%; min-height:700px;"></div>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b50f777e80931e3ecceb48757ca6e4bf&libraries=services,clusterer,drawing"></script>
     <script>
@@ -101,7 +101,13 @@
                 title: list_bdy[idx]
             });
 
-            var iwContent = '<div class="contentContainer"><img src="' + list_img[idx]+ '" class="postImg" alt="posted image">' + list_bdy[idx] + '</div>'
+            var iwContent = '<div style="width:200px;height:210px;">'
+            + '<img style="border:1px solid black; border-radius:5px; max-width:190px;max-height:150px;margin-left:5px;margin-top:5px;" src="' + list_img[idx] + '" class="postImg" alt="posted image">'
+            + '<div style="width:190px;margin-left:5px;height:50px;overflow:hidden;text-overflow:ellipsis;white-space:normal;line-height: 1.2;max-height:2.4em; text-align:left; word-wrap:break-word; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;">'
+            + list_bdy[idx]
+            + '</div>'
+
+            + '</div>'
 
             var infoWindow = new kakao.maps.InfoWindow({
                 //content: list_bdy[idx]

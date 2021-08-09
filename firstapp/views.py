@@ -2,9 +2,13 @@ from django.http import request
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
+<<<<<<< HEAD
 from .models import Blog, Profile
 from django.contrib.auth.models import User
 from django.views.generic.detail import DetailView
+=======
+from .models import Blog, Comment
+>>>>>>> 27306cdc3677b9b98c8fbf5e958148b0e49fdda6
 
 # Create your views here.
 
@@ -20,7 +24,14 @@ def siteMain(request):
 
 def detail(request, id):
     blog = get_object_or_404(Blog, pk = id)
-    return render(request, 'blog/detail.html', {'blog' :blog})
+    comments = Comment.objects.filter(post = id)
+    if request.method == "POST":
+        comment = Comment()
+        comment.post = blog
+        comment.body = request.POST['body']
+        comment.date = timezone.now()
+        comment.save()
+    return render(request, 'blog/detail.html', {'blog' :blog, 'comments' : comments})
 
 def profile(request, name):
     name = request.user
