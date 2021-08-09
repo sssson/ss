@@ -43,7 +43,6 @@ def create(request):
     new_blog = Blog()
     new_blog.body = request.POST['body']
     new_blog.created_at = timezone.now()
-    
     new_blog.images = request.FILES['images']
     new_blog.save()
     return redirect('detail', new_blog.id)
