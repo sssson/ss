@@ -101,8 +101,11 @@
                 title: list_bdy[idx]
             });
 
+            var iwContent = '<div class="contentContainer"><img src="' + list_img[idx]+ '" class="postImg" alt="posted image">' + list_bdy[idx] + '</div>'
+
             var infoWindow = new kakao.maps.InfoWindow({
-                content: list_bdy[idx]
+                //content: list_bdy[idx]
+                content: iwContent
             });
             (function(marker, infoWindow) {
                 kakao.maps.event.addListener(marker, 'mouseover', function() {
