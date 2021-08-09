@@ -39,14 +39,17 @@ def login(request):
 def new(request):
     return render(request, 'blog/new.html')
 
+def post(request):
+    return render(request, 'blog/post.html')
+
 def create(request):
-    new_blog = Blog()
-    new_blog.body = request.POST['body']
-    new_blog.created_at = timezone.now()
-    
-    new_blog.images = request.FILES['images']
-    new_blog.save()
-    return redirect('detail', new_blog.id)
+    post_blog = Blog()
+    post_blog.body = request.POST['body']
+    post_blog.hashtag = request.POST['hashtag']
+    post_blog.created_at = timezone.now()
+    post_blog.images = request.FILES['images']
+    post_blog.save()
+    return redirect('detail', post_blog.id)
 
 
 def search(request):
@@ -57,5 +60,3 @@ def search(request):
         blog_list = blog_list.filter(hashtag__icontains=search_key) # 해당 검색어를 포함한 queryset 가져오기
     return render(request, 'blog/search.html', {'blog_list':blog_list})
     
-def post(request):
-    return render(request, 'blog/post.html')
