@@ -1,11 +1,10 @@
 from django.http import request
 from django.http.response import HttpResponse
-<<<<<<< HEAD
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
-=======
-from django.shortcuts import render
->>>>>>> ee2e617dd1893e265564a56d430c9108dab303b2
+
+
 from .models import Blog
 
 # Create your views here.
@@ -37,7 +36,7 @@ def main_map(request):
 def login(request):
     return render(request, 'blog/login.html')
 
-<<<<<<< HEAD
+
 
 def new(request):
     return render(request, 'blog/new.html')
@@ -52,7 +51,7 @@ def create(request):
     return redirect('detail', new_blog.id)
 
 
-=======
+
 def search(request):
     blog_list = Blog.objects.all()
     
@@ -63,4 +62,3 @@ def search(request):
     
 def post(request):
     return render(request, 'blog/post.html')
->>>>>>> ee2e617dd1893e265564a56d430c9108dab303b2
