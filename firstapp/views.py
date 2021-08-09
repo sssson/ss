@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.http import request
 from django.http.response import HttpResponse
 
@@ -46,6 +47,7 @@ def create(request):
     post_blog = Blog()
     post_blog.body = request.POST['body']
     post_blog.hashtag = request.POST['hashtag']
+    post_blog.author = aa
     post_blog.created_at = timezone.now()
     post_blog.images = request.FILES['images']
     post_blog.save()
