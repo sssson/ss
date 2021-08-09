@@ -45,13 +45,11 @@ def create(request):
     post_blog = Blog()
     post_blog.body = request.POST['body']
     post_blog.hashtag = request.POST['hashtag']
-    post_blog.author = aa
     post_blog.created_at = timezone.now()
     post_blog.images = request.FILES['images']
     post_blog.author = request.user #여기도 수정
     post_blog.save()
     return redirect('main')
-
 
 def search(request):
     blog_list = Blog.objects.all()
