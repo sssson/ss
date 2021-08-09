@@ -2,13 +2,10 @@ from django.http import request
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
-<<<<<<< HEAD
 from .models import Blog, Profile
 from django.contrib.auth.models import User
 from django.views.generic.detail import DetailView
-=======
 from .models import Blog, Comment
->>>>>>> 27306cdc3677b9b98c8fbf5e958148b0e49fdda6
 
 # Create your views here.
 

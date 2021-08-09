@@ -18,14 +18,12 @@ class Blog(models.Model):
     def __str__(self):
         return str(self.latitude) + ", " + str(self.longitude) #일단 위도, 경도 표시하도록 해놓음 ->편의에 따라 바꿔도 ㄱㅊ
 
-<<<<<<< HEAD
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) # 현 계정의 사용자를 가져올 수 있음.
     nickname = models.CharField(max_length=64)
     profile_photo = models.ImageField(blank=True)                 # 값을 채워넣지 않아도 되는 속성.
-=======
+
 class Comment(models.Model):
   post = models.ForeignKey(Blog, on_delete=models.CASCADE, null=True)
   body = models.TextField()
   date = models.DateTimeField(default=timezone.now)
->>>>>>> 27306cdc3677b9b98c8fbf5e958148b0e49fdda6
