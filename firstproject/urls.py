@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+<<<<<<< HEAD
+from firstapp.views import main, detail, credit, main_map, signup, login, new, create
+=======
 from firstapp.views import main, detail, credit, main_map, signup, login, search, post
+>>>>>>> ee2e617dd1893e265564a56d430c9108dab303b2
 import firstapp.views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -24,7 +28,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/', signup, name='signup'),
     path('main/', main, name='main'),
-    path('detail/', detail, name='detail'),
+    path('<str:id>', detail, name='detail'),
+    path('new/', new, name='new'),
+    path('create/', create, name='create'),
     path('credit/', credit, name='credit'),
     path('map/', main_map, name='main_map'),
     path('', login, name='main_login'),
