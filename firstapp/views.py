@@ -15,7 +15,7 @@ def main(request):
 def signup(request):
     return render(request, 'blog/signup.html')
 
-def siteMain(reqeust):
+def siteMain(request):
     return render(request, 'siteMain.html')
 
 def detail(request, id):
