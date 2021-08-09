@@ -29,7 +29,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/', signup, name='signup'),
     path('main/', main, name='main'),
-    path('detail/', detail, name='detail'),
+    path('detail/<str:id>', detail, name='detail'),
     path('create/', create, name='create'),
     path('credit/', credit, name='credit'),     
     path('map/', main_map, name='main_map'),
