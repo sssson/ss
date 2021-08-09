@@ -36,7 +36,7 @@ def search(request):
     search_key = request.GET.get('search_key') # 검색어 가져오기
     if search_key: # 만약 검색어가 존재하면
         blog_list = blog_list.filter(hashtag__icontains=search_key) # 해당 검색어를 포함한 queryset 가져오기
-
     return render(request, 'blog/search.html', {'blog_list':blog_list})
+    
 def post(request):
     return render(request, 'blog/post.html')
