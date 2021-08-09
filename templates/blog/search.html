@@ -14,7 +14,7 @@
 <body>
     <div class="nav-wrapper">
         <div class="logo">
-            <img src="../../static/css/logo_back.PNG" >
+           <a href="{% url 'main' %}"> <img src="../../static/css/logo_back.PNG" ></a>
         </div>
         <ul class="nav">
             <li><a href="{% url 'credit' %}"><img src="https://image.flaticon.com/icons/png/512/174/174188.png" id="support_btn"></a></li>
@@ -43,7 +43,7 @@
                     <p class="clock">{{blog.created_at}}</p>
                 </div>
                 <div class="card-banner">
-                    <img src="{{blog.images.url}}" width="1350" height="2000">
+                  <a href="{%url 'detail' blog.id%}"><img src="{{blog.images.url}}" alt=""></a>
                 </div>
                 <div class="card-body">
                     <p class="hastag">{{blog.hashtag}}</p>

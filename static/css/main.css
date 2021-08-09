@@ -3,7 +3,11 @@
     margin: 0;
     padding: 0;
 } 
-
+.title{
+    margin-right:15.5cm;
+    font-family: 'Rancho', cursive;
+  }
+  
 html{
     background-color: rgb(240, 237, 233);
     background-size: cover;
@@ -11,11 +15,17 @@ html{
 
 .nav-wrapper{
     background-color: rgb(106, 159, 177);
-    display: flex;
-    justify-content: flex-end;
+    height:80px;
+    padding:0px;
+    margin:0px;
+    font-family: 'Rancho', cursive;
+    display:flex;
+    justify-content:flex-end;
     align-items: center;
-    padding: 20px;
+    text-align: center;
 }
+ 
+      
 
 .nav{
     display: flex;

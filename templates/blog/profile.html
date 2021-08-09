@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../static/css/post.css">
+  <title>Cli-mate_Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="nav-wrapper">
+            <div class="logo">
+                <a href="{% url 'main'%}"><img src="../../static/css/logo_back.PNG" ></a>
+            </div>
+            <ul class="nav">
+                <li><a href="{% url 'credit' %}"><img src="https://image.flaticon.com/icons/png/512/174/174188.png" id="support_btn"></a></li>
+                <li style="color: white;" class="logout"><a href="{% url 'main_login' %}">Logout</a></li>
+                <li><a href="{% url 'profile' %}"><img class="nav-profile" src="https://image.flaticon.com/icons/png/512/149/149071.png"></a></li>
+            </ul>
+        </div>
+        <!--여기까지가 Navbar-->
+    <h1> 프로필 페이지 </h1>
+</body>
+</html>
