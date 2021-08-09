@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
+
 from firstapp.views import main, detail, credit, main_map, signup, login, new, create, search, post
+
 
 
 import firstapp.views

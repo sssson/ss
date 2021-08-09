@@ -4,7 +4,6 @@ from django.http.response import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 
-
 from .models import Blog
 
 # Create your views here.
@@ -27,15 +26,14 @@ def credit(request):
     return render(request, 'blog/credit.html')
 
 def main_map(request):
-    blogs = Blog.objects.all()
+    blogss = Blog.objects.all()
     context = {
-        'blogs': blogs,
+        'blogss': blogss,
     }
     return render(request, 'blog/map.html', context)
 
 def login(request):
     return render(request, 'blog/login.html')
-
 
 
 def new(request):
@@ -49,7 +47,6 @@ def create(request):
     new_blog.images = request.FILES['images']
     new_blog.save()
     return redirect('detail', new_blog.id)
-
 
 
 def search(request):
