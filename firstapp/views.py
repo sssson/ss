@@ -45,6 +45,7 @@ def post(request):
 def create(request):
     post_blog = Blog()
     post_blog.body = request.POST['body']
+    post_blog.hashtag = request.POST['hashtag']
     post_blog.created_at = timezone.now()
     post_blog.save()
     return redirect('detail', post_blog.id)
