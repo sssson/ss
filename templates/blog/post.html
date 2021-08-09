@@ -37,22 +37,26 @@
                 <input type="datetime-local"/>
             </div>
         </div>
+
+
+        
         <div class="body3">
             <div class="photo-wrapper">
                 <btn class="btn_photo">사진 선택</btn>
                 <input type="file" name="images" accept="image/*" onchange="setThumbnail(event);"/>   
             </div>
         </div>
+
+    <form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}    
         <div class="body4">
             <div class="hashtag-wrapper">
                 <btn class="btn_hashtag">해시태그</btn>
-                <form>
-                    <input type="text" name="hashtag" placeholder="# 해시태그를 입력해주세요" style="width: 400px;"/>
-                </form>
+                
+                <input type="text" name="hashtag" placeholder="# 해시태그를 입력해주세요" style="width: 400px;"/>
+                
             </div>
         </div>
-    <form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
-        {%csrf_token%}    
         <div class="body5">
             <div class="desc-wrapper">
                 <btn class="btn_desc" style="height: 35px; margin-top: 60px;">내용 입력</btn>
@@ -60,10 +64,8 @@
                 <textarea name="body" rows="10" cols="50">내용을 입력해주세요</textarea>
                 
             </div>
-        </div>
-        <div>
-            <button type="submit"> submit</button>
-        </div>
+        </div>        
+        <button type="submit"> submit</button>
     </form>
 
 </body>
