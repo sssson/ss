@@ -18,14 +18,16 @@
         </div>
         <ul class="nav">
             <li><a href="{% url 'credit' %}"><img src="https://image.flaticon.com/icons/png/512/174/174188.png" id="support_btn"></a></li>
-            <li style="color: white;" class="logout"><a href="#">Logout</a></li>
+            <li style="color: white;" class="logout"><a href="{% url 'main_login' %}">Logout</a></li>
             <li><img class="nav-profile" src="https://image.flaticon.com/icons/png/512/149/149071.png"></li>
         </ul>
     </div>
     <!--여기까지가 Navbar-->
     <div class="search-wrapper">
         <div class="search">
-            <input type="text" value=" # Search ">
+            <form action="{% url 'search' %}" method='GET'>  
+            <input type="text" name="search_key" value="{{ search_key }}">
+            </form>
             <img src="https://image.flaticon.com/icons/png/512/622/622669.png" >
         </div>
         

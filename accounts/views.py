@@ -9,7 +9,7 @@ def signup(request):
             user=User.objects.create_user(
                 request.POST['username'],password=request.POST['password'])
             auth.login(request,user)
-            return redirect('/main')
+            return redirect('login')
     return render(request, 'blog/signup.html')
 
 def login(request):
@@ -24,3 +24,9 @@ def login(request):
             return render(request,'blog/login.html', {'error':'username or password is incorrect'})
     else:
         return render(request, 'blog/login.html')
+
+def logout(request):
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('/')
+    return render(request, 'blog/login.html')
