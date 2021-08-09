@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-zsnh%0ps256xxzh^nk@*h#d!)#9pceei63@wgq_ur3j2lhzxqr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["192.168.35.223", "172.30.1.47", "127.0.0.1"]
 
 
 # Application definition
@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'firstapp.apps.FirstappConfig',
+
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -107,9 +109,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-kr' #기존과 같이 영어로 관리자페이지 구성핳려면 en-us 입력
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
