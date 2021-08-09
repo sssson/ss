@@ -19,7 +19,7 @@
         <ul class="nav">
             <li><a href="{% url 'credit' %}"><img src="https://image.flaticon.com/icons/png/512/174/174188.png" id="support_btn"></a></li>
             <li style="color: white;" class="logout"><a href="{% url 'main_login' %}">Logout</a></li>
-            <li><a href="{% url 'profile' %}"><img class="nav-profile" src="https://image.flaticon.com/icons/png/512/149/149071.png"></a></li>
+            <li><a href="{% url 'profile' user.username %}"><img class="nav-profile" src="https://image.flaticon.com/icons/png/512/149/149071.png"></a></li>
         </ul>
     </div>
     <!--여기까지가 Navbar-->

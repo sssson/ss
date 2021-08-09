@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 
 
-from firstapp.views import main, detail, credit, main_map, signup, login, new, create, search, post, profile
+from firstapp.views import main, detail, credit, main_map, signup, login, new, create, search, post, profile, modify
 
 
 
@@ -37,6 +37,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('post/', post, name='post'),
     path('search/', search, name='search'),
-    path('profile/', profile, name='profile'),
+    path('profile/<str:name>', profile, name='profile'),
+    path('modify/<str:name2>', modify, name='modify'),
 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

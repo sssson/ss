@@ -1,9 +1,10 @@
-from django.contrib.auth.models import User
 from django.http import request
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
-from .models import Blog
+from .models import Blog, Profile
+from django.contrib.auth.models import User
+from django.views.generic.detail import DetailView
 
 # Create your views here.
 
@@ -20,6 +21,14 @@ def siteMain(request):
 def detail(request, id):
     blog = get_object_or_404(Blog, pk = id)
     return render(request, 'blog/detail.html', {'blog' :blog})
+
+def profile(request, name):
+    name = request.user
+    return render(request, 'blog/profile.html', {'userinfo':name}) 
+
+def modify(request, name2):
+    name2 = request.user
+    return render(request, 'blog/modify.html', {'userinfo2':name2})
 
 def credit(request):
     return render(request, 'blog/credit.html')
@@ -59,6 +68,6 @@ def search(request):
         blog_list = blog_list.filter(hashtag__icontains=search_key) # 해당 검색어를 포함한 queryset 가져오기
     return render(request, 'blog/search.html', {'blog_list':blog_list})
 
-def profile(request):
-    return render(request, 'blog/profile.html')
+
+
     

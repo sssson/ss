@@ -24,17 +24,7 @@
             </ul>
         </div>
         <!--여기까지가 Navbar-->
-    
-    <h2><a class = "intro">{{user.username}}님 반갑습니다!</a></h2>
-    <br>
-    <br>
-        {% block content %}
-
-            {% load static %}
-                <div class="block">
-                    <img src="{% static 'profile/basic_profile.jpg' %}"> <br>
-                    <button><a href="{% url 'modify' user.username%}">편집하기</a></button>
-                </div>
-        {% endblock %}   
+    </div>
 </body>
+</head>
 </html>
