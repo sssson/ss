@@ -31,7 +31,7 @@ urlpatterns = [
     path('main/', main, name='main'),
     path('detail/<str:id>', detail, name='detail'),
     path('create/', create, name='create'),
-    path('credit/', credit, name='credit'),
+    path('credit/', credit, name='credit'),     
     path('map/', main_map, name='main_map'),
     path('', login, name='main_login'),
     path('accounts/', include('accounts.urls')),
