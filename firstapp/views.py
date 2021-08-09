@@ -43,7 +43,6 @@ def post(request):
     return render(request, 'blog/post.html')
 
 def create(request):
-<<<<<<< HEAD
     post_blog = Blog()
     post_blog.body = request.POST['body']
     post_blog.hashtag = request.POST['hashtag']
@@ -51,14 +50,6 @@ def create(request):
     post_blog.images = request.FILES['images']
     post_blog.save()
     return redirect('detail', post_blog.id)
-=======
-    new_blog = Blog()
-    new_blog.body = request.POST['body']
-    new_blog.created_at = timezone.now()
-    new_blog.images = request.FILES['images']
-    new_blog.save()
-    return redirect('detail', new_blog.id)
->>>>>>> d8352dd87783d28145d8bc5a64953ed7fa79fe7b
 
 
 def search(request):
