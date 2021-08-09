@@ -15,11 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-<<<<<<< HEAD
-from firstapp.views import main, detail, credit, main_map, signup, login, new, create
-=======
-from firstapp.views import main, detail, credit, main_map, signup, login, search, post
->>>>>>> ee2e617dd1893e265564a56d430c9108dab303b2
+from firstapp.views import main, detail, credit, main_map, signup, login, new, create, search, post
 import firstapp.views
 from django.conf import settings
 from django.conf.urls.static import static
