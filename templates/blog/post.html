@@ -38,17 +38,17 @@
             </div>
         </div>
 
-
-        
+    <form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
         <div class="body3">
             <div class="photo-wrapper">
                 <btn class="btn_photo">사진 선택</btn>
-                <input type="file" name="images" accept="image/*" onchange="setThumbnail(event);"/>   
+                <input type="file" name = "images">
+                <!-- <input type="file" name="images" accept="image/*" onchange="setThumbnail(event);"/>    -->
             </div>
         </div>
 
-    <form action="{%url 'create'%}" method="post" enctype="multipart/form-data">
-        {%csrf_token%}    
+        
         <div class="body4">
             <div class="hashtag-wrapper">
                 <btn class="btn_hashtag">해시태그</btn>
