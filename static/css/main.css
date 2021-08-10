@@ -24,8 +24,10 @@ html{
     align-items: center;
     text-align: center;
 }
- 
-      
+
+.nav-wrapper p{
+    display: inline-block;
+}
 
 .nav{
     display: flex;

@@ -22,10 +22,10 @@
         </div>
         <ul class="nav">
             <li><a href="{% url 'credit' %}"><img src="https://image.flaticon.com/icons/png/512/174/174188.png" id="support_btn"></a></li>
-            <li style="color: white;" class="logout"><a href="{% url 'main_login' %}">Logout</a></li>
             <li><a href="{% url 'profile' user.username %}"><img class="nav-profile" src="https://image.flaticon.com/icons/png/512/149/149071.png"></a></li>
         </ul>
         <!-- navbar -->
+            
             {% if user.username %}
                  <a class="nav-item nav-link" href="{% url 'logout'%}">Logout</a>
             {% else %}
@@ -45,6 +45,7 @@
 <body>
     <div class="container">
     {% block body %}
+        
     <!-- 다른 템플릿에서 이 템플릿을 상속받아 사용할 때 이 위치에 코드들이 적용된다. -->
     {% endblock %}
     </div>

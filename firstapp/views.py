@@ -14,7 +14,8 @@ from .models import Profile
 
 def main(request):
     blogs = Blog.objects.all()
-    return render(request, 'blog/main.html', {'blogs':blogs})
+    person = Profile.objects.all()
+    return render(request, 'blog/main.html', {'blogs':blogs, 'person':person})
 
 def signup(request):
     return render(request, 'blog/signup.html')
