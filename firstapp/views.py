@@ -31,6 +31,8 @@ def detail(request, id):
     return render(request, 'blog/detail.html', {'blog' :blog, 'comments' : comments})
 
 def profile(request, name):
+    info = Profile()
+    info.nickname = request.user
     name = request.user
     return render(request, 'blog/profile.html', {'userinfo':name}) 
 
