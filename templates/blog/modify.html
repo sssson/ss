@@ -24,7 +24,34 @@
             </ul>
         </div>
         <!--여기까지가 Navbar-->
+        
     </div>
+
+    <form method="post">
+        {%csrf_token%}
+        
+        <div class="body5">
+            <div class="desc-wrapper">
+                <btn class="btn_desc" style="height: 35px; margin-top: 60px;">Nickname</btn>
+                
+                <textarea name="body" rows="10" cols="50">{{ profile.nickname }}</textarea>
+                
+            </div>
+        </div> 
+
+        <div class="body3">
+            <div class="photo-wrapper">
+                <btn class="btn_photo">사진 선택</btn>
+                <input type="file" name = "images">
+                <!-- <input type="file" name="images" accept="image/*" onchange="setThumbnail(event);"/>    -->
+            </div>
+        </div>
+
+        
+        
+               
+        <button type="submit"> submit</button>
+    </form>
+
 </body>
-</head>
 </html>
