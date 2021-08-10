@@ -31,10 +31,18 @@
         {% block content %}
 
             {% load static %}
-                <div class="block">
-                    <img src="{% static 'profile/basic_profile.jpg' %}"> <br>
-                    <button><a href="{% url 'modify' user.username%}">편집하기</a></button>
-                </div>
+                
+                    <img
+                    src="{% static 'profile/basic_profile.jpg' %}"
+                    style="float: left;  margin-left: 200px; margin-bottom: 10px; width:200px; height:200px;"
+                    />
+                    <div class="info">
+                        이름 - {{user.username}}    <br>
+                        이메일 -
+                    </div> 
+                    <br><br><br><br><br><br><br><br><br><br><br><br>
+                    <a href="{% url 'modify' user.username%}" style="margin-left: 200px;">편집하기</a>
+               
         {% endblock %}   
 </body>
 </html>

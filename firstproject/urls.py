@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 
 
-from firstapp.views import main, detail, credit, main_map, signup, login, new, create, search, post, profile, modify, edit, update, delete
+from firstapp.views import main,modify2, detail, credit, main_map, signup, login, new, create, search, post, profile, modify, edit, update, delete
 
 
 
@@ -39,6 +39,7 @@ urlpatterns = [
     path('search/', search, name='search'),
     path('profile/<str:name>', profile, name='profile'),
     path('modify/<str:name2>', modify, name='modify'),
+    path('modify2/', modify2, name="modify2"),
     path('edit/<str:id>', edit, name='edit'),
     path('update/<str:id>', update, name='update'),
     path('delete/<str:id>', delete, name='delete'),

@@ -2,13 +2,10 @@
     box-sizing: border-box;
     margin-left: 400px;
     margin-right: 400px;
-    padding: 0;
 } 
 
-.block{
-    display: inline-block; 
-    height: 200px; 
-    width: 200px; 
+.block {
+    margin-left: 200px;
 }
 
 
