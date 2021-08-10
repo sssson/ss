@@ -98,7 +98,7 @@
             var marker = new kakao.maps.Marker({
                 map: map,
                 position: coordinates[idx],
-                title: list_bdy[idx]
+                title: list_crt[idx]
             });
 
             var iwContent = '<div style="width:200px;height:210px;">'
@@ -106,25 +106,30 @@
             + '<div style="width:190px;margin-left:5px;height:50px;overflow:hidden;text-overflow:ellipsis;white-space:normal;line-height: 1.2;max-height:2.4em; text-align:left; word-wrap:break-word; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;">'
             + list_bdy[idx]
             + '</div>'
+            + '</div>',
+            iwPosition = coordinates[idx], //인포윈도우 표시 위치
+            iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼 표시
 
-            + '</div>'
 
             var infoWindow = new kakao.maps.InfoWindow({
                 //content: list_bdy[idx]
-                content: iwContent
+                content: iwContent,
+                removable : iwRemoveable
             });
+            
             (function(marker, infoWindow) {
                 kakao.maps.event.addListener(marker, 'mouseover', function() {
                     infoWindow.open(map, marker);
                 });
 
-                kakao.maps.event.addListener(marker, 'mouseout', function() {
-                    infoWindow.close();
-                });
+//                kakao.maps.event.addListener(marker, 'mouseout', function() { //마우스 떼면 없어지도록 함
+//                    infoWindow.close();
+//                });
             })(marker, infoWindow);
         }
 
         marker.setMap(map); //marker가 지도 위에 표시되도록 설정
+
     </script>
 </body>
 </html>
