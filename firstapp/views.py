@@ -87,8 +87,11 @@ def create(request):
     post_blog.created_at = timezone.now()
     post_blog.images = request.FILES['images']
     post_blog.author = request.user #여기도 수정
+    post_blog.weather = request.POST.getlist('weather[]')
     post_blog.save()
     return redirect('main')
+# if request.method == 'POST':
+        
 
 def search(request):
     blog_list = Blog.objects.all()
@@ -119,3 +122,5 @@ def delete(request, id):
     delete_blog = Blog.objects.get(id= id)
     delete_blog.delete()
     return redirect('main')    
+
+
