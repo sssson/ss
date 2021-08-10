@@ -12,10 +12,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet">
 </head>
 <body> 
-    
-    <div class="nav-wrapper">
-            <div class="logo">
-                <a href="{% url 'main'%}"><img src="../../static/css/logo_back.PNG" ></a>
+    <form action="{%url 'modify2'%}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+            <div class="nav-wrapper">
+                    <div class="logo">
+                        <a href="{% url 'main'%}"><img src="../../static/css/logo_back.PNG" ></a>
+                    </div>
+                    <ul class="nav">
+                        <li><a href="{% url 'credit' %}"><img src="https://image.flaticon.com/icons/png/512/174/174188.png" id="support_btn"></a></li>
+                        <li style="color: white;" class="logout"><a href="{% url 'main_login' %}">Logout</a></li>
+                        <li><a href="{% url 'profile' user.username%}"><img class="nav-profile" src="https://image.flaticon.com/icons/png/512/149/149071.png"></a></li>
+                    </ul>
+                </div>
+                <!--여기까지가 Navbar-->
             </div>
             <ul class="nav">
                 <li><a href="{% url 'credit' %}"><img src="https://image.flaticon.com/icons/png/512/174/174188.png" id="support_btn"></a></li>
@@ -27,7 +36,7 @@
         
     </div>
 
-    <form method="post">
+    <form action="{%url 'modify2' %}" method="post">
         {%csrf_token%}
         
         <div class="body5">

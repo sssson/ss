@@ -31,14 +31,27 @@ def detail(request, id):
     return render(request, 'blog/detail.html', {'blog' :blog, 'comments' : comments})
 
 def profile(request, name):
-    info = Profile()
-    info.nickname = request.user
     name = request.user
     return render(request, 'blog/profile.html', {'userinfo':name}) 
 
 def modify(request, name2):
     name2 = request.user
     return render(request, 'blog/modify.html', {'userinfo2':name2})
+
+def modify2(request):
+    info = Profile()
+    if info is None:
+        info.user = request.user
+        info.nickname = request.user
+        info.profile_photo= request.FILES['images']
+        info.save()
+        return redirect('profile', info.nickname)
+    else:
+        info.user = request.user
+        info.nickname = request.user
+        info.profile_photo= request.FILES['images']
+        info.save()
+        return redirect('profile', info.nickname)
 
 def credit(request):
     return render(request, 'blog/credit.html')
@@ -72,6 +85,7 @@ def create(request):
     return redirect('main')
 # if request.method == 'POST':
         
+
 def search(request):
     blog_list = Blog.objects.all()
     
