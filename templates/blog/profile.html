@@ -1,48 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../static/css/post.css">
-  <link rel="stylesheet" href="../../static/css/profile.css">
-  <title>Cli-mate_Profile</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet">
-</head>
-<body> 
-    
-    <div class="nav-wrapper">
-            <div class="logo">
-                <a href="{% url 'main'%}"><img src="../../static/css/logo_back.PNG" ></a>
-            </div>
-            <ul class="nav">
-                <li><a href="{% url 'credit' %}"><img src="https://image.flaticon.com/icons/png/512/174/174188.png" id="support_btn"></a></li>
-                <li style="color: white;" class="logout"><a href="{% url 'main_login' %}">Logout</a></li>
-                <li><a href="{% url 'profile' user.username%}"><img class="nav-profile" src="https://image.flaticon.com/icons/png/512/149/149071.png"></a></li>
-            </ul>
-        </div>
-        <!--여기까지가 Navbar-->
-    
-    <h2><a class = "intro">{{user.username}}님 반갑습니다!</a></h2>
-    <br>
-    <br>
-        {% block content %}
 
-            {% load static %}
-                
-                    <img
-                    src="{% static 'profile/basic_profile.jpg' %}"
-                    style="float: left;  margin-left: 200px; margin-bottom: 10px; width:200px; height:200px;"
-                    />
-                    <div class="info">
-                        이름 - {{user.username}}    <br>
-                        이메일 -
-                    </div> 
-                    <br><br><br><br><br><br><br><br><br><br><br><br>
-                    <a href="{% url 'modify' user.username%}" style="margin-left: 200px;">편집하기</a>
-               
-        {% endblock %}   
-</body>
-</html>
+<!-- accounts/templates/accounts/people.html -->
+{% extends 'blog/base.html' %}
+    <link rel="stylesheet" href="../../static/css/post.css">
+    <link rel="stylesheet" href="../../static/css/profile.css">
+{% block body %}
+<div class="row">
+     <div class="col-4">
+        <img src={% if person.profile.profile_photo %}"{{ person.profile.profile_photo.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} 
+            width="170rem" style="border-radius: 50%;" alt="">
+    </div>
+    <div class="col-8">
+        <h2>{{ user.username }}
+            {% if user.username == user.username %}
+            <a href="{% url 'modify' %}"><button class="btn btn-success">프로필 편집</button></a>
+            {% endif %}
+            <!-- 다음 포스트에 프로필 편집 페이지를 구성할 것이다. -->
+        </h2>
+        <p>{{ profile.nickname }}</p>
+    </div>
+</div>
+{% endblock %}

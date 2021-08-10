@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'firstapp.apps.FirstappConfig',
 
     'accounts',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [

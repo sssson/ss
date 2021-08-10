@@ -6,6 +6,9 @@ from .models import Blog, Profile
 from django.contrib.auth.models import User
 from django.views.generic.detail import DetailView
 from .models import Blog, Comment
+from django.contrib.auth import get_user_model
+from .forms import CustomUserChangeForm, ProfileForm
+from .models import Profile
 
 # Create your views here.
 
@@ -30,28 +33,32 @@ def detail(request, id):
         comment.save()
     return render(request, 'blog/detail.html', {'blog' :blog, 'comments' : comments})
 
-def profile(request, name):
-    name = request.user
-    return render(request, 'blog/profile.html', {'userinfo':name}) 
+def profile(request, username):
+    person = get_object_or_404(get_user_model(), username=username)
+    return render(request, 'blog/profile.html', {'person':person}) 
 
-def modify(request, name2):
-    name2 = request.user
-    return render(request, 'blog/modify.html', {'userinfo2':name2})
-
-def modify2(request):
-    info = Profile()
-    if info is None:
-        info.user = request.user
-        info.nickname = request.user
-        info.profile_photo= request.FILES['images']
-        info.save()
-        return redirect('profile', info.nickname)
+def modify(request):
+    if request.method == 'POST':
+        user_change_form = CustomUserChangeForm(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if user_change_form.is_valid() and profile_form.is_valid():
+            user = user_change_form.save()
+            profile_form.save()
+            return redirect('profile', user.username)
+        return redirect('profile', request.user)
     else:
-        info.user = request.user
-        info.nickname = request.user
-        info.profile_photo= request.FILES['images']
-        info.save()
-        return redirect('profile', info.nickname)
+        user_change_form = CustomUserChangeForm(instance=request.user)
+        # 새롭게 추가하는 것이 아니라 수정하는 것이기 때문에
+        # 기존의 정보를 가져오기 위해 instance를 지정해야 한다.
+        profile, create = Profile.objects.get_or_create(user=request.user)
+        # Profile 모델은 User 모델과 1:1 매칭이 되어있지만
+        # User 모델에 새로운 인스턴스가 생성된다고 해서 그에 매칭되는 Profile 인스턴스가 생성되는 것은 아니기 때문에
+        # 매칭되는 Profile 인스턴스가 있다면 그것을 가져오고, 아니면 새로 생성하도록 한다.
+        profile_form = ProfileForm(instance=profile)
+        return render(request, 'blog/modify.html', {
+            'user_change_form': user_change_form,
+            'profile_form': profile_form
+        })
 
 def credit(request):
     return render(request, 'blog/credit.html')

@@ -20,7 +20,9 @@ class Blog(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,blank=True, null=True) # 현 계정의 사용자를 가져올 수 있음.
+    
     nickname = models.CharField(max_length=64, blank=True, null=True)
+    description = models.TextField(blank=True)
     profile_photo = models.ImageField(upload_to='profile/',blank=True, null=True)          # 값을 채워넣지 않아도 되는 속성.
 
 class Comment(models.Model):
