@@ -13,9 +13,11 @@
 </head>
 
 {% if error %}
-{{ error }}
-<br>
-<br>
+<script type="text/javascript">
+
+  alert("가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.");
+
+</script>
 {% endif %}
 
 <body>
@@ -32,15 +34,15 @@
     <div class ="main">
       <div class="ID">
         <button type="button" class="id">ID</button>
-        <input name="username" type="text" value="">
+        <input class ="input-id" name="username" type="text" value="">
       </div>
       <div class="Password">
         <button type="button" class="password">비밀번호</button>
-        <input name="password" type="password" value="">
+        <input class ="input-password" name="password" type="password" value="">
       </div>
       <div class="enter">
-      <button type="button" class="button"><a href="{% url 'signup' %}">회원가입</a></button>
-      <input class="button" type="submit" value="로그인">
+      <button type="button" class="button1"><a href="{% url 'signup' %}">회원가입</a></button>
+      <input class="button2" type="submit" value="로그인">
       </div>
     </div>
     </form>

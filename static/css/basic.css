@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
 }
-
 .header{
   background-color: rgb(106, 159, 177);
   height:80px;
@@ -19,7 +18,7 @@
 .logo{
   position: absolute;
   top: -15px;
-  left: 650px;
+  left: 45%;
 }
 
 .logo img{
@@ -68,6 +67,11 @@
 .card-header{
   display:flex;
   justify-content: center;
+}
+
+.header-profile img{
+    width:30px;
+    height:30px;
 }
 
 .profile-picture img{
@@ -129,7 +133,7 @@ p{
 .Time {
   position: absolute;
   top: 505px;
-  left: 650px;
+  left: 750px;
 }
 .Like{
   position: absolute;
@@ -200,6 +204,29 @@ input{
   margin-top: 3px;
   width:55px;
   height:35px;
+}
+.submit-btn2{
+  background-color:rgba(26,6,255, 0.54);
+  color: aliceblue;
+  font-family: 'Roboto';
+  font-size:15px;
+  text-align: center;
+  border-radius: 10px;
+  border:0;
+  margin-top: 3px;
+  width:200%;
+}
+
+.edit{
+  position: absolute;
+  top: 475px;
+  left: 700px;
+}
+
+.delete{
+  position: absolute;
+  top: 475px;
+  left: 770px;
 }
 .card-writer{
   position: absolute;
