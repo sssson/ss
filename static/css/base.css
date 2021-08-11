@@ -23,18 +23,6 @@ html{
 }
 
 
-.nav-wrapper p{
-    display: inline-block;
-}
-
-.nav-wrapper a{
-    display: inline-block;
-}
-
-.nav-wrapper img{
-    display: inline-block;
-}
-
 .nav{
     list-style-type: none;
     display: inline-block;
@@ -52,6 +40,10 @@ html{
     margin-top: 10px;
     margin-bottom: 10px;
     margin-right: 30px;
+}
+
+.nav-item-link {
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .nav-profile{
@@ -73,11 +65,6 @@ html{
     padding: 15px 0 20px 30px;
 }
 
-.hi{
-    position: absolute;
-    top: 25px;
-    left: 1100px;
-}
 .nav li{
     font-size: 25px;
 }
