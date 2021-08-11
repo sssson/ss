@@ -12,6 +12,9 @@ from .models import Profile
 
 # Create your views here.
 
+def loading(request):
+    return render(request, 'blog/loading.html')
+
 def main(request):
     blogs = Blog.objects.all()
     person = get_object_or_404(get_user_model(), username=request.user)
