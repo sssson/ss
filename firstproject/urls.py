@@ -36,7 +36,7 @@ urlpatterns = [
    
     path('profile/<str:username>', profile, name='profile'),
     path('modify/', modify, name='modify'),
-    path('edit/<str:id>', edit, name='edit'),
+    path('detail/edit/<str:id>', edit, name='edit'),
     path('update/<str:id>', update, name='update'),
     path('delete/<str:id>', delete, name='delete'),
     path('like/<int:id>', post_like, name='post_like'),

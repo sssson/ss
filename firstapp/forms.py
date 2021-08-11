@@ -4,7 +4,12 @@ from django.contrib.auth import get_user_model
 from django import forms
 from django.contrib.auth.forms import UserChangeForm
 from django.db import models
-from .models import Profile
+from .models import Profile, Blog
+
+class BlogPost(forms.ModelForm):
+    class Meta:
+        model = Blog
+        fields = ['author','images','hashtag','weather','body','likes']
 
 class CustomUserCreationForm(UserCreationForm):
     # UserCreationForm을 상속받아 CustomUserCreationForm을 만든다.

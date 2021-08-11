@@ -1,3 +1,4 @@
+from typing import Reversible
 from django.http import request
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
@@ -7,8 +8,9 @@ from django.contrib.auth.models import User
 from django.views.generic.detail import DetailView
 from .models import Blog, Comment
 from django.contrib.auth import get_user_model
-from .forms import CustomUserChangeForm, ProfileForm
+from .forms import BlogPost, CustomUserChangeForm, ProfileForm
 from .models import Profile
+from django.views.decorators.http import require_http_methods
 
 # Create your views here.
 
@@ -59,12 +61,7 @@ def modify(request):
         return redirect('profile', request.user)
     else:
         user_change_form = CustomUserChangeForm(instance=request.user)
-        # 새롭게 추가하는 것이 아니라 수정하는 것이기 때문에
-        # 기존의 정보를 가져오기 위해 instance를 지정해야 한다.
         profile, create = Profile.objects.get_or_create(user=request.user)
-        # Profile 모델은 User 모델과 1:1 매칭이 되어있지만
-        # User 모델에 새로운 인스턴스가 생성된다고 해서 그에 매칭되는 Profile 인스턴스가 생성되는 것은 아니기 때문에
-        # 매칭되는 Profile 인스턴스가 있다면 그것을 가져오고, 아니면 새로 생성하도록 한다.
         profile_form = ProfileForm(instance=profile)
         return render(request, 'blog/modify.html', {
             'user_change_form': user_change_form,
@@ -121,9 +118,22 @@ def search(request):
 
 
 def edit(request, id):
-    edit_blog = Blog.objects.get(id= id)
-    return render(request, 'blog/edit.html', {'blog':edit_blog})
-
+    edit_blog = Blog.objects.get(id=id)
+    if request.method == "POST":
+        form = BlogPost(request.POST, request.FILES)
+        if form.is_valid():
+            print(form.cleaned_data)
+            edit_blog.author = form.cleaned_data['author']
+            edit_blog.images = form.cleaned_data['images']
+            edit_blog.hashtag = form.cleaned_data['hashtag']
+            edit_blog.weather = form.cleaned_data['weather']
+            edit_blog.body = form.cleaned_data['body']
+            edit_blog.save()
+            return redirect('detail', id)
+        return redirect('detail', id)    
+    else:
+        form = BlogPost(instance=request.user)  
+        return render(request, 'blog/edit.html',{'blog':edit_blog})
 
 def update(request, id):
     update_blog = Blog.objects.get(id= id)
@@ -133,7 +143,7 @@ def update(request, id):
     update_blog.author = request.user
     update_blog.created_at = timezone.now()
     update_blog.save()
-    return redirect('detail', update_blog.id)
+    return redirect('detail'+str(update_blog.pk))
 
 
 def delete(request, id):
