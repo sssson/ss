@@ -17,7 +17,7 @@
 .logo{
   position: absolute;
   top: -15px;
-  left: 650px;
+  left: 45%;
 }
 
 .logo img{
@@ -59,10 +59,12 @@
 }
 
 .id{
-  width: 130px;
-  height: 35px;
+  width: 9%;
+  height: 4%;
+  position: absolute;
+  top: 20%;
+  left: 40%;
   margin-right:0.8cm;
-  margin-left: 3cm;
   border-radius: 10px;
   border-style: solid;
   border-color:aliceblue;
@@ -70,17 +72,21 @@
 }
 
 .input-id{
-  width: 400px;
-  height: 35px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 15%;
+  height: 4%;
 }
 .Password{
   margin-top: 2cm;
 }
 .password{
-  width: 130px;
-  height: 35px;
-  margin-right:0.8cm;
-  margin-left:3cm;
+  width: 9%;
+  height: 4%;
+  position: absolute;
+  top: 30%;
+  left: 40%;
   border-radius: 10px;
   border-style: solid;
   border-color:aliceblue;
@@ -88,27 +94,33 @@
 }
 
 .input-password{
-  width: 400px;
-  height: 35px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 15%;
+  height: 4%;
+}
+.input-password2{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 15%;
+  height: 4%;
 }
 .Password2{
   margin-top: 2cm;
 }
 
 .password2{
-  width: 130px;
-  height: 35px;
-  margin-right:0.8cm;
-  margin-left: 3cm;
+  width: 9%;
+  height: 4%;
+  position: absolute;
+  top: 40%;
+  left: 40%;
   border-radius: 10px;
   border-style: solid;
   border-color:aliceblue;
   box-shadow: 1px 0px 2px 1px rgb(124, 123, 123);
-}
-
-.input-password2{
-  width: 400px;
-  height: 35px;
 }
 
 .Select-image{
@@ -157,6 +169,34 @@
   flex-direction: row;
 }
 
-.button{
-  margin-left:1cm;
+.button1{
+  position: absolute;
+  top: 40%;
+  left: 43%;
+  width: 10%;
+  height: 4%;
+}
+
+.button2{
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  width: 10%;
+  height: 4%;
+}
+
+.button3{
+  position: absolute;
+  top: 50%;
+  left: 43%;
+  width: 10%;
+  height: 4%;
+}
+
+.button4{
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  width: 10%;
+  height: 4%;
 }
