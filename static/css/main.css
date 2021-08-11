@@ -1,26 +1,15 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-} 
+
 .title{
     font-family: 'Rancho', cursive;
   }
   
 html{
     background-color: rgb(240, 237, 233);
-    background-size: cover;
-}
-
-.hi{
-    position: absolute;
-    top: 25px;
-    left: 70%;
 }
 
 .main-text{
     text-align: center;
-    padding: 100px;
+  
     color: white;
 }
 

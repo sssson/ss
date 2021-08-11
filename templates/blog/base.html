@@ -23,17 +23,18 @@
         <div class="nav">
             <!-- navbar -->
              {% if user.is_authenticated %}
+                <p class="hi">안녕하세요, {{user.username}}님!</p>
                 <li><a href="{% url 'credit' %}"><img class="nav-credit" src="https://image.flaticon.com/icons/png/512/174/174188.png"></a></li>
                 {% if person.profile.profile_photo.url %}
                 <li><a href="{% url 'profile' user.username %}"><img class="nav-profile" style="border-radius:50px;" src={{person.profile.profile_photo.url}}></a></li>
                 {% else %}
                 <li><a href="{% url 'profile' user.username %}"><img class="nav-profile" src="https://image.flaticon.com/icons/png/512/149/149071.png"></a></li>
                 {% endif %}
-                <a class="nav-item-link" href="javascript:{document.getElementById('logout').submit()}" style="font-family:Nanum Gothic;">Logout</a>
+                <button class="nav-item-link" href="javascript:{document.getElementById('logout').submit()}" style="font-family:Nanum Gothic;">Logout</button>
                 <form id="logout" method="POST" action="{% url 'logout' %}">
                     {%csrf_token%} <input type="hidden" />
                 </form>
-                <p class="hi" style="font-size:30px; font-family:Nanum Gothic; right-margin:30px">안녕하세요, {{user.username}}님!</p>
+                
             {% else %}
                 <a class="nav-item-link" href="{% url 'signup' %}">Signup</a>
                 <a class="nav-item-link" href="{% url 'login' %}">Login</a>
