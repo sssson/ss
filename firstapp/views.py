@@ -32,7 +32,13 @@ def detail(request, id):
         comment.body = request.POST['body']
         comment.date = timezone.now()
         comment.save()
-    return render(request, 'blog/detail.html', {'blog' :blog, 'comments' : comments})
+
+    if blog.likes.filter(id=request.user.id):
+        message="취소"
+    else:
+        message="좋아요"
+
+    return render(request, 'blog/detail.html', {'blog' :blog, 'comments' : comments, 'message' : message})
 
 def profile(request, username):
     person = get_object_or_404(get_user_model(), username=username)
@@ -128,4 +134,13 @@ def delete(request, id):
     delete_blog.delete()
     return redirect('main')    
 
+def post_like(request, id):
+    blog = get_object_or_404(Blog, pk=id)
+    user = request.user
 
+    if blog.likes.filter(id=user.id):
+        blog.likes.remove(user)
+    else: 
+        blog.likes.add(user)
+
+    return redirect('/detail/'+str(id))

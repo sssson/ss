@@ -25,10 +25,12 @@
         </div>
         
         <a class ="map" href="{% url 'main_map' %}">맵 페이지 임시 버튼</a>
+        <p class="Like"><a href = "{% url 'post_like' blog.id %}"></a>
+        <a href = "{% url 'post_like' blog.id %}">{{message}}</a>
+        {{blog.likes.count}}명이 좋아합니다.</p>
         <div class="sub-comment">
           <p class="Hash-tag">{{blog.hashtag}}</p> <!--해시태그 시간 좋아요-->
-          <p class="Time">{{blog.created_at}}</p>
-          <p class="Like">Like</p>
+          <p class="Time">{{blog.created_at|date:'m-d h:i' }}</p>
         </div>
         <div class="main-comment">
           <p>{{blog.body}}</p>              <!--본문-->               
@@ -36,7 +38,18 @@
       </div>
       <div class="card2">
         <div class="weather-picture">
-          <img src="https://icongr.am/jam/bus.svg?size=35&color=currentColor"> 
+          {% if blog.weather == "['rainy']" %}
+                <img class="weather" src='https://image.flaticon.com/icons/png/512/826/826957.png'>
+                {% endif %}
+                {% if blog.weather == "['sunny']" %}
+                <img class="weather" src='https://image.flaticon.com/icons/png/512/869/869869.png'>
+                {% endif %}
+                {% if blog.weather == "['wind']" %}
+                <img class="weather" src='https://image.flaticon.com/icons/png/512/4150/4150923.png'>
+                {% endif %}
+                {% if blog.weather == "['cloudy']" %}
+                <img class="weather" src='https://image.flaticon.com/icons/png/512/1146/1146869.png'>
+                {% endif %}
         </div>
         <div class="comment">
         <!--작성된 댓글 넣을 공간-->

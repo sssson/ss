@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Blog
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile,Like
 
 # Register your models here.
 admin.site.register(Blog)
@@ -17,3 +17,4 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
+admin.site.register(Like)
