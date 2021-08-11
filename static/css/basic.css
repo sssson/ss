@@ -1,50 +1,5 @@
 *{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.header{
-  background-color: rgb(106, 159, 177);
-  height:80px;
-  padding:0px;
-  margin:0px;
-  font-family: 'Rancho', cursive;
-  display:flex;
-  justify-content:flex-end;
-  align-items: center;
-  text-align: center;
-}
-
-.logo{
-  position: absolute;
-  top: -15px;
-  left: 650px;
-}
-
-.logo img{
-  justify-content: center;
-  width:240px;
-  height:100px;
-}
-.header img{
-  margin-right: 0.5cm;
-}
-.btn{
-  width:60px;
-  height:30px;
-  background-color:rgba(124, 112, 247, 1);
-  color: aliceblue;
-  margin:15px;
-  font-family: 'Roboto';
-  font-size:15px;
-  text-align: center;
-  border-radius: 10px;
-  border:0;
-  outline: 0;
-}
-.title{
-  margin-right:15.5cm;
+  margin : 0;
 }
 
 .detail-card{
@@ -53,7 +8,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 1px 0px 2px 1px rgb(209, 209, 209);
-  border-style: solid;
+  border-style: cover;
   border-color:aliceblue;
 }
 .card{
@@ -61,6 +16,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 100px;
   margin-left: 5cm;
   width:400px;
 }
@@ -73,7 +29,7 @@
 .profile-picture img{
   width:30px;
   height:30px;
-  position: absolute;
+  position: relative;
   top: 120px;
   left: 350px;
 }
@@ -138,6 +94,7 @@ p{
 }
 .card2{
   margin-left: 0px;
+  margin-top: 5%;
   margin-bottom: 5.3cm;
   justify-content: center;
 }

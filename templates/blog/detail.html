@@ -1,76 +1,62 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/basic.css' %}">
-  <title>Cli-mate</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet">
-</head>
-<body>
-  
-  <div class="header">
-    <div class="logo">
-           <a href="{% url 'main' %}"> <img src="../../static/css/logo_back.PNG" ></a>
-     </div>
-    <button type="button" class="btn">logout</button>
-    <img src="https://icongr.am/jam/bus.svg?size=35&color=currentColor"> <!--상단바 프로필사진-->
-  </div>
-  <div class = "detail-card">
-    <div class="card">
-      <div class="card-body">
-        <div class="card-header">
-          <div class="profile-picture">
-            <img src="https://icongr.am/jam/bus.svg?size=35&color=currentColor"> <!--프로필 사진-->
-          </div>
-          <h2 class="card-writer">{{ blog.author }}</h2> <!--작성자 이름-->
-        </div>
+{% extends 'blog/base.html' %}
 
-          {% if user == blog.author %}
-            <a class ="edit" href="{% url 'edit' blog.id %}">수정</a>
-            <a class ="delete" href="{% url 'delete' blog.id %}">삭제</a>
-          {% endif %}
-        <div class="main-picture">
-          <img src="{{blog.images.url}}">
-        </div>                                <!--main 이미지-->
-      </div>
-      
-      <a class ="map" href="{% url 'main_map' %}">맵 페이지 임시 버튼</a>
-      <div class="sub-comment">
-        <p class="Hash-tag">{{blog.hashtag}}</p> <!--해시태그 시간 좋아요-->
-        <p class="Time">{{blog.created_at}}</p>
-        <p class="Like">Like</p>
-      </div>
-      <div class="main-comment">
-        <p>{{blog.body}}</p>              <!--본문-->               
-      </div>  
-    </div>
-    <div class="card2">
-      <div class="weather-picture">
-        <img src="https://icongr.am/jam/bus.svg?size=35&color=currentColor"> 
-      </div>
-      <div class="comment">
-       <!--작성된 댓글 넣을 공간-->
-       댓글 : 
-        {% for comment in comments %}
-        {{user.username}} : {{comment.body}} - {{comment.date}}
-        <br>
-      {% endfor %}
+{% load static %}
+
+  <body>
+  {%block content%}
+  <link rel="stylesheet" href="../../static/css/basic.css">
+    <div class = "detail-card">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-header">
+            <div class="profile-picture">
+              <img src="https://icongr.am/jam/bus.svg?size=35&color=currentColor"> <!--프로필 사진-->
+            </div>
+            <h2 class="card-writer">{{ blog.author }}</h2> <!--작성자 이름-->
+          </div>
+
+            {% if user == blog.author %}
+              <a class ="edit" href="{% url 'edit' blog.id %}">수정</a>
+              <a class ="delete" href="{% url 'delete' blog.id %}">삭제</a>
+            {% endif %}
+          <div class="main-picture">
+            <img src="{{blog.images.url}}">
+          </div>                                <!--main 이미지-->
         </div>
         
-        <form method="POST">
-          <div class="comment-input">
-            {% csrf_token %}
-            <input name="body" type="text" value="댓글 작성">
-            <input class="submit-btn" type="submit" value="게시">
+        <a class ="map" href="{% url 'main_map' %}">맵 페이지 임시 버튼</a>
+        <div class="sub-comment">
+          <p class="Hash-tag">{{blog.hashtag}}</p> <!--해시태그 시간 좋아요-->
+          <p class="Time">{{blog.created_at}}</p>
+          <p class="Like">Like</p>
+        </div>
+        <div class="main-comment">
+          <p>{{blog.body}}</p>              <!--본문-->               
+        </div>  
+      </div>
+      <div class="card2">
+        <div class="weather-picture">
+          <img src="https://icongr.am/jam/bus.svg?size=35&color=currentColor"> 
+        </div>
+        <div class="comment">
+        <!--작성된 댓글 넣을 공간-->
+        댓글 : 
+          {% for comment in comments %}
+          {{user.username}} : {{comment.body}} - {{comment.date}}
+          <br>
+        {% endfor %}
           </div>
-        </form>      
-          <!--댓글 작성창-->
+          
+          <form method="POST">
+            <div class="comment-input">
+              {% csrf_token %}
+              <input name="body" type="text" value="댓글 작성">
+              <input class="submit-btn" type="submit" value="게시">
+            </div>
+          </form>      
+            <!--댓글 작성창-->
+      </div>
     </div>
-  </div>
-</body>
+  {%endblock%}
+  </body>
 </html>

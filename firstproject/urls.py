@@ -19,7 +19,7 @@ from django.urls import path,include
 
 from firstapp.views import main, detail, credit, main_map, signup, login, new, create, search, post, profile, modify, edit, update, delete
 
-
+from firstapp.views import test
 
 import firstapp.views
 from django.conf import settings
@@ -43,5 +43,7 @@ urlpatterns = [
     path('edit/<str:id>', edit, name='edit'),
     path('update/<str:id>', update, name='update'),
     path('delete/<str:id>', delete, name='delete'),
+
+    path('test/', test, name="test"),
 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

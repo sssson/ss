@@ -1,28 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/css/map.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>   
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap" rel="stylesheet">
-    <title>Map</title>
-</head>
+{% extends 'blog/base.html' %}
+{%block content%}
 <body>
-    <div class="nav-wrapper">
-        <div class="logo">
-            <a href="{% url 'main' %}"><img src="../../static/css/logo_back.PNG"></a>
-        </div>
-        <ul class="nav">
-            <li><a href="{% url 'credit' %}"><img src="https://image.flaticon.com/icons/png/512/174/174188.png" id="support_btn"></a></li>
-            <li style="color: white;" class="logout"><a href="{% url 'main_login' %}">Logout</a></li>
-            <li><a href="{% url 'profile' user.username %}"><img class="nav-profile" src="https://image.flaticon.com/icons/png/512/149/149071.png"></a></li>
-        </ul>
-    </div>
-
     <!--아래부터는 받아온 값들을 각각 id를 부여하여 저장한 것-->
     <div id="lat" style="display:none"> <!--위도값 불러와서 저장-->
         {%for blog in blogss%}
@@ -146,4 +124,4 @@
 
     </script>
 </body>
-</html>
+{%endblock%}

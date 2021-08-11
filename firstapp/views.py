@@ -61,6 +61,9 @@ def modify(request):
             'profile_form': profile_form
         })
 
+def test(request):
+    return render(request, 'blog/test.html')
+
 def credit(request):
     return render(request, 'blog/credit.html')
 

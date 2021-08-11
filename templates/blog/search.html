@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'blog/base.html'%}
+
+{%block content%}
     <link rel="stylesheet" href="../../static/css/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>   
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap" rel="stylesheet">
-    <title>Community</title>
-</head>
-<body>
-    <div class="nav-wrapper">
-        <div class="logo">
-           <a href="{% url 'main' %}"> <img src="../../static/css/logo_back.PNG" ></a>
-        </div>
-        <ul class="nav">
-            <li><a href="{% url 'credit' %}"><img src="https://image.flaticon.com/icons/png/512/174/174188.png" id="support_btn"></a></li>
-            <li style="color: white;" class="logout"><a href="#">Logout</a></li>
-            <li><img class="nav-profile" src="https://image.flaticon.com/icons/png/512/149/149071.png"></li>
-        </ul>
-    </div>
-    <!--여기까지가 Navbar-->
     <div class="search-wrapper">
         <div class="search">
             <form action="" method='GET'>  
@@ -54,5 +33,4 @@
         </div>
      </div>
     </div>
-  </body>
-</html>
+{%endblock%}

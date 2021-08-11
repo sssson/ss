@@ -1,7 +1,11 @@
 
 <!-- accounts/templates/accounts/people.html -->
 {% extends 'blog/base.html' %}
-{% block body %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+<link rel="stylesheet" href="../../static/css/profile.css">
 <div class="row">
      <div class="col-4">
         <img src={% if person.profile.profile_photo %}"{{ person.profile.profile_photo.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} 
