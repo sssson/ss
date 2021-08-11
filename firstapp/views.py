@@ -113,6 +113,7 @@ def update(request, id):
     update_blog = Blog.objects.get(id= id)
     update_blog.body = request.POST['body']
     update_blog.hashtag = request.POST['hashtag']
+    update_blog.weather = request.POST.getlist('weather[]')
     update_blog.author = request.user
     update_blog.created_at = timezone.now()
     update_blog.save()
