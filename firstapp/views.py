@@ -69,8 +69,10 @@ def credit(request):
 
 def main_map(request):
     blogss = Blog.objects.all()
+    personss = Profile.objects.all()
     context = {
         'blogss': blogss,
+        'personss': personss
     }
     return render(request, 'blog/map.html', context)
 
