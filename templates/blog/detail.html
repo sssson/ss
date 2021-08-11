@@ -31,15 +31,15 @@
         </div>
 
           {% if user == blog.author %}
-          <a href="{% url 'edit' blog.id %}"><수정></a>
-          <a href="{% url 'delete' blog.id %}"><삭제></a>
+            <a class ="edit" href="{% url 'edit' blog.id %}">수정</a>
+            <a class ="delete" href="{% url 'delete' blog.id %}">삭제</a>
           {% endif %}
         <div class="main-picture">
           <img src="{{blog.images.url}}">
         </div>                                <!--main 이미지-->
       </div>
       
-      <a href="{% url 'main_map' %}">맵 페이지 임시 버튼</a>
+      <a class ="map" href="{% url 'main_map' %}">맵 페이지 임시 버튼</a>
       <div class="sub-comment">
         <p class="Hash-tag">{{blog.hashtag}}</p> <!--해시태그 시간 좋아요-->
         <p class="Time">{{blog.created_at}}</p>

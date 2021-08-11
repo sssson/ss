@@ -19,7 +19,7 @@
             <img src="../../static/css/logo_back.PNG" >
         </div>
          <ul class="nav"> 
-            <li><p style="font-family:굴림;" class ="hi">안녕하세요, {{user.username}}님!</p></li>
+            <li><p style="font-family:굴림; font-size: 20px" class ="hi">안녕하세요, {{user.username}}님!</p></li>
             <li><a href="{% url 'credit' %}"><img src="https://image.flaticon.com/icons/png/512/174/174188.png" id="support_btn"></a></li>
             <li><a href="{% url 'profile' user.username %}"><img class="nav-profile" 
             src={% if person.profile.profile_photo %}"{{ person.profile.profile_photo.url }}"

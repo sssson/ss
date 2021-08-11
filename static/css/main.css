@@ -35,7 +35,9 @@ html{
 }
 
 .logo{
-    margin-right:36%;
+    position: absolute;
+    top: -15px;
+    left: 650px;
 }
 
 .logo img{
@@ -44,6 +46,11 @@ html{
     height:100px;
 }
 
+.hi{
+    position: absolute;
+    top: 25px;
+    left: 1100px;
+}
 .nav li{
     font-size: 25px;
 }

@@ -1,5 +1,7 @@
 *{
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .header{
@@ -15,7 +17,9 @@
 }
 
 .logo{
-  margin-right:36%;
+  position: absolute;
+  top: -15px;
+  left: 650px;
 }
 
 .logo img{
@@ -69,54 +73,68 @@
 .profile-picture img{
   width:30px;
   height:30px;
-  margin-top: 1.1cm;
-  object-fit: cover;
+  position: absolute;
+  top: 120px;
+  left: 350px;
 }
-
 .card-writer{
-  text-align: center;
-  margin-top: 1cm; 
-  margin-right: 16cm;
+ margin-left: 1cm;
 }
 
+.edit{
+  position: absolute;
+  top: 580px;
+  left: 700px;
+}
+.delete{
+  position: absolute;
+  top: 580px;
+  left: 750px;
+}
 .main-picture img{
   width:500px;
   height:300px;
   margin-top:0px;
   object-fit: cover;
   border-radius: 10px;
-  margin-right: 5cm;
+  position: absolute;
+  top: 170px;
+  left: 350px;
 }
 
 .sub-comment{
   width:500px;
   height:40px;
-  margin-right:5.5cm;
   display: flex;
   flex-direction: row;
   justify-content: left;
 }
 
-.Time{
-  margin-right:auto;
+p{
+  text-align: start;
 }
 
-p{
-  margin-top: 15px;
-  margin-bottom: 0px;
-  text-align: start;
+.map{  
+  position: absolute;
+  top: 475px;
+  left: 350px;
 }
 
 .Hash-tag{
   color: rgba(26, 6, 255, 0.54);
-  margin-left: 0.5cm;
+  position: absolute;
+  top: 505px;
+  left: 350px;
 }
 .Time {
-  margin-left: 3cm;
-  margin-right: 2cm;
+  position: absolute;
+  top: 505px;
+  left: 650px;
 }
 .Like{
-  margin-right: 2cm;
+  position: absolute;
+  top: 505px;
+  left: 600px;
 }
 .card2{
   margin-left: 0px;
@@ -125,9 +143,9 @@ p{
 }
 
 .main-comment{
-  width:500px;
-  height:300px;
-  margin-right:5.5cm;
+  position: absolute;
+  top: 540px;
+  left: 350px;
 }
 
 .weather-picture{
@@ -182,4 +200,9 @@ input{
   margin-top: 3px;
   width:55px;
   height:35px;
+}
+.card-writer{
+  position: absolute;
+  top: 120px;
+  left: 350px;
 }
