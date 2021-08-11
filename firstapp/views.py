@@ -14,7 +14,7 @@ from .models import Profile
 
 def main(request):
     blogs = Blog.objects.all()
-    person = Profile.objects.all()
+    person = get_object_or_404(get_user_model(), username=request.user)
     return render(request, 'blog/main.html', {'blogs':blogs, 'person':person})
 
 def signup(request):
@@ -25,20 +25,19 @@ def siteMain(request):
 
 def detail(request, id):
     blog = get_object_or_404(Blog, pk = id)
+    person = get_object_or_404(get_user_model(), username=request.user)
     comments = Comment.objects.filter(post = id)
     if request.method == "POST":
-        comment = Comment()
-        comment.post = blog
-        comment.body = request.POST['body']
-        comment.date = timezone.now()
-        comment.save()
-
-    if blog.likes.filter(id=request.user.id):
-        message="취소"
-    else:
-        message="좋아요"
-
-    return render(request, 'blog/detail.html', {'blog' :blog, 'comments' : comments, 'message' : message})
+            comment = Comment()
+            comment.post = blog
+            comment.body = request.POST['body']
+            comment.date = timezone.now()
+            comment.save()
+            if blog.likes.filter(id=request.user.id):
+                message="취소"
+            else:
+                message="좋아요"
+    return render(request, 'blog/detail.html', {'blog' :blog, 'comments' : comments, 'person':person, 'message' : message})
 
 def profile(request, username):
     person = get_object_or_404(get_user_model(), username=username)
@@ -71,14 +70,16 @@ def test(request):
     return render(request, 'blog/test.html')
 
 def credit(request):
-    return render(request, 'blog/credit.html')
+    person = get_object_or_404(get_user_model(), username=request.user)
+    return render(request, 'blog/credit.html', {'person':person})
 
 def main_map(request):
     blogss = Blog.objects.all()
+    person = get_object_or_404(get_user_model(), username=request.user)
     context = {
         'blogss': blogss,
     }
-    return render(request, 'blog/map.html', context)
+    return render(request, 'blog/map.html', context, {'person':person})
 
 def login(request):
     return render(request, 'blog/login.html')
@@ -88,7 +89,8 @@ def new(request):
     return render(request, 'blog/new.html')
 
 def post(request):
-    return render(request, 'blog/post.html')
+    person = get_object_or_404(get_user_model(), username=request.user)
+    return render(request, 'blog/post.html', {'person':person})
 
 def create(request):
     post_blog = Blog()
@@ -105,11 +107,11 @@ def create(request):
 
 def search(request):
     blog_list = Blog.objects.all()
-    
+    person = get_object_or_404(get_user_model(), username=request.user)
     search_key = request.GET.get('search_key') # 검색어 가져오기
     if search_key: # 만약 검색어가 존재하면
         blog_list = blog_list.filter(hashtag__icontains=search_key) # 해당 검색어를 포함한 queryset 가져오기
-    return render(request, 'blog/search.html', {'blog_list':blog_list})
+    return render(request, 'blog/search.html', {'blog_list':blog_list, 'person':person})
 
 
 

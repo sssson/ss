@@ -8,8 +8,13 @@
 <link rel="stylesheet" href="../../static/css/profile.css">
 <div class="row">
      <div class="col-4">
-        <img src={% if person.profile.profile_photo %}"{{ person.profile.profile_photo.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} 
-            width="300px" style="border-radius: 50%;" alt="">
+        <img src=
+        {% if person.profile.profile_photo %}
+        "{{ person.profile.profile_photo.url }}"
+        {% else %}
+        "https://i.stack.imgur.com/34AD2.jpg"
+        {% endif %} 
+        width="300px" style="border-radius: 50%;" alt="">
     </div>
     <div class="col-8">
         <h2>{{ person.profile.nickname }}
