@@ -34,9 +34,9 @@
 .profile-picture img{
   width:30px;
   height:30px;
-  position: relative;
-  top: 120px;
-  left: 350px;
+  position: absolute;
+  top: 125px;
+  left: 355px;
 }
 .card-writer{
  margin-left: 1cm;
@@ -94,12 +94,12 @@ p{
 }
 .Like{
   position: absolute;
-  top: 505px;
+  top: 476px;
   left: 600px;
 }
 .card2{
   margin-left: 0px;
-  margin-top: 5%;
+  margin-top: 2%;
   margin-bottom: 5.3cm;
   justify-content: center;
 }
@@ -177,14 +177,30 @@ input{
 
 .edit{
   position: absolute;
+  width:50px;
   top: 475px;
   left: 700px;
+  background-color:rgba(26,6,255, 0.54);
+  color: aliceblue;
+  font-family: 'Roboto';
+  font-size:15px;
+  text-align: center;
+  border-radius: 10px;
+  border:0;
 }
 
 .delete{
   position: absolute;
+  width:50px  ;
   top: 475px;
   left: 770px;
+  background-color:rgba(26,6,255, 0.54);
+  color: aliceblue;
+  font-family: 'Roboto';
+  font-size:15px;
+  text-align: center;
+  border-radius: 10px;
+  border:0;
 }
 .card-writer{
   position: absolute;
