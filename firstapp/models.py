@@ -10,13 +10,8 @@ class Blog(models.Model):
     latitude = models.FloatField(default=0.0) #위도
     longitude = models.FloatField(default=0.0) #경도
     hashtag = models.TextField(max_length=20) #해시태그는 하나만 적을 수 있도록 하는 게 편할듯
-<<<<<<< HEAD
     weather = models.TextField() #4개로 구분 - cloudy, sunny, rainy, wind
     images = models.ImageField(upload_to ="images", blank = True, null = True)
-=======
-    weather = models.TextField() #4개로 구분 - cloudy, sunny, rainy, snowy
-    images = models.ImageField(upload_to ="images/%Y%m%d", blank = True, null = True)
->>>>>>> b222e36a80034e2c79149544e3be7eb5d34f4589
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE )#작성자 여기 수정
     created_at = models.DateTimeField(auto_now_add=True) #작성시각
     #pub_date = models.DateTimeField('data published')

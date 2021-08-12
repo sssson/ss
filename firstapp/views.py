@@ -80,16 +80,14 @@ def credit(request):
 
 def main_map(request):
     blogss = Blog.objects.all()
-<<<<<<< HEAD
     personss = Profile.objects.all()
-=======
-    person = get_object_or_404(get_user_model(), username=request.user)
->>>>>>> b222e36a80034e2c79149544e3be7eb5d34f4589
+    personsss = get_object_or_404(get_user_model(), username=request.user)
     context = {
         'blogss': blogss,
-        'personss': personss
+        'personss': personss,
+        'personsss': personsss
     }
-    return render(request, 'blog/map.html', context, {'person':person})
+    return render(request, 'blog/map.html', context)
 
 def login(request):
     return render(request, 'blog/login.html')
