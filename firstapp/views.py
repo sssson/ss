@@ -85,7 +85,6 @@ def main_map(request):
 def login(request):
     return render(request, 'blog/login.html')
 
-
 def new(request):
     return render(request, 'blog/new.html')
 
