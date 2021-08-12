@@ -25,11 +25,7 @@
         <div class="nav">
             <!-- navbar -->
              {% if user.is_authenticated %}
-<<<<<<< HEAD
-                <p class="hi" style="font-size:15px">안녕하세요, {{user.username}}님!</p>
-=======
                 <p class="hi">안녕하세요, {{user.username}}님! </p>
->>>>>>> 60945842ff6533f8ce4ddc4fb45561797ff6bf52
                 <li><a href="{% url 'credit' %}"><img class="nav-credit" src="https://image.flaticon.com/icons/png/512/174/174188.png"></a></li>
                 {% if person.profile.profile_photo.url %}
                 <li><a href="{% url 'profile' user.username %}"><img class="nav-profile" style="border-radius:50px;" src={{person.profile.profile_photo.url}}></a></li>
