@@ -1,22 +1,19 @@
-*{
-  margin : 0;
-}
 
 .detail-card{
   display:flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  box-shadow: 1px 0px 2px 1px rgb(209, 209, 209);
   border-style: cover;
   border-color:aliceblue;
+  margin-top: 40px;
 }
 .card{
   display:flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 80px;
   margin-left: 5cm;
   width:400px;
 }
@@ -52,10 +49,10 @@
   top: 580px;
   left: 750px;
 }
+
 .main-picture img{
   width:500px;
   height:300px;
-  margin-top:0px;
   object-fit: cover;
   border-radius: 10px;
   position: absolute;
@@ -94,13 +91,13 @@ p{
 }
 .Like{
   position: absolute;
-  top: 476px;
-  left: 600px;
+  top: 477px;
+  left: 530px;
 }
 .card2{
   margin-left: 0px;
   margin-top: 2%;
-  margin-bottom: 5.3cm;
+  margin-bottom: 4cm;
   justify-content: center;
 }
 
@@ -179,7 +176,7 @@ input{
   position: absolute;
   width:50px;
   top: 475px;
-  left: 700px;
+  left: 740px;
   background-color:rgba(26,6,255, 0.54);
   color: aliceblue;
   font-family: 'Roboto';
@@ -193,7 +190,7 @@ input{
   position: absolute;
   width:50px  ;
   top: 475px;
-  left: 770px;
+  left: 800px;
   background-color:rgba(26,6,255, 0.54);
   color: aliceblue;
   font-family: 'Roboto';

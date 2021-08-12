@@ -16,20 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from firstapp.views import main, detail, credit, main_map, signup, login, new, create, search, post, profile, modify, edit, update, delete, post_like
-from firstapp.views import test
+from firstapp.views import test, loading
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('signup/', signup, name='signup'),
+    path('accounts/', include('accounts.urls')),
+
     path('main/', main, name='main'),
     path('detail/<str:id>', detail, name='detail'),
     path('create/', create, name='create'),
     path('credit/', credit, name='credit'),     
     path('map/', main_map, name='main_map'),
-    path('', login, name='main_login'),
-    path('accounts/', include('accounts.urls')),
+    path('', loading, name='loading'),
+    
     path('post/', post, name='post'),
     path('search/', search, name='search'),
    
@@ -39,6 +40,8 @@ urlpatterns = [
     path('update/<str:id>', update, name='update'),
     path('delete/<str:id>', delete, name='delete'),
     path('like/<int:id>', post_like, name='post_like'),
-    path('test/', test, name="test"),
+    path('test/', test, name='test'),
+
+    path('loading/', loading, name='loading'),
 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
