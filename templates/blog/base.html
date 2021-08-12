@@ -17,9 +17,11 @@
 </head>
 <body>
     <div class="nav-wrapper">
+        <div class="blank_left"></div>  <!-- 가상 공간 -->
         <div class="logo">
               <a href="{% url 'main' %}"> <img src="../../static/css/logo_back.PNG" width="240" height="100"></a>
         </div>
+        <div class="blank_right"></div> <!-- 가상 공간 -->
         <div class="nav">
             <!-- navbar -->
              {% if user.is_authenticated %}
@@ -36,7 +38,7 @@
                 </form>
                 
             {% else %}
-                <a class="nav-item-link" href="{% url 'signup' %}" style="margin-left:600px;">Signup</a>
+                <a class="nav-item-link" href="{% url 'signup' %}" style="margin-left:400px;">Signup</a>
                 <a class="nav-item-link" href="{% url 'login' %}" style="margin-left:10px;">Login</a>
             {% endif %}
         </div>   
